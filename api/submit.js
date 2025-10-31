@@ -7,13 +7,13 @@ export default async function handler(req, res) {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
     const msg =
       `<b>Новый отклик LUMA</b>%0A%0A` +
-      `Имя: ${body.first_name||'-'}%0A` +
-      `Фамилия: ${body.last_name||'-'}%0A` +
-      `Телефон: ${body.phone||'-'}%0A` +
-      `ДР: ${body.dob||'-'}%0A` +
-      `Платформа: ${body.platform||'-'}%0A` +
-      `Telegram: ${body.telegram||'-'}%0A` +
-      `Трек-код: <b>${body.track_code||'-'}</b>`;
+      `👤Имя: ${body.first_name||'-'}%0A` +
+      `👥Фамилия: ${body.last_name||'-'}%0A` +
+      `☎️Телефон: ${body.phone||'-'}%0A` +
+      `🎂ДР: ${body.dob||'-'}%0A` +
+      `📱Платформа: ${body.platform||'-'}%0A` +
+      `🌐Telegram: ${body.telegram||'-'}%0A` +
+      `🎟Трек-код: <b>${body.track_code||'-'}</b>`;
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
     const r = await fetch(url, {
       method: 'POST',
