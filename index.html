@@ -100,7 +100,7 @@
       margin-top:30px;
     }
     .benefit{
-      background:#fff;border-radius:16px;padding:14px 14px 14px 14px;
+      background:#fff;border-radius:16px;padding:14px;
       border:1px solid rgba(0,0,0,.015);box-shadow:0 5px 20px rgba(0,0,0,.02);
     }
     .benefit strong{display:block;margin-bottom:5px}
@@ -124,8 +124,27 @@
 
     /* apply form */
     .form-grid{display:flex;flex-direction:column;gap:12px}
-    .input{background:#fff;border:1px solid rgba(10,95,90,.08);border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center}
-    .input input{all:unset;flex:1;font-size:16px}
+    .input{
+      background:#fff;
+      border:1px solid rgba(10,95,90,.08);
+      border-radius:14px;
+      padding:12px 14px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .input input{
+      all:unset;
+      flex:1;
+      font-size:16px;
+      color:#101920;
+    }
+    .input input[type=date]{color:#101920;font-weight:500}
+    .label-title{
+      font-size:14px;
+      color:#4a585f;
+      margin-bottom:4px;
+    }
     .segmented{display:flex;gap:12px}
     .seg{
       flex:1;text-align:center;padding:10px;border-radius:14px;
@@ -134,13 +153,44 @@
     .seg.active{background:#e4fffb;border-color:#33c2b6}
 
     /* calculator */
-    .calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:center}
+    .calc-grid{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:flex-start}
     .calc-card{background:#fff;border-radius:20px;padding:18px;box-shadow:var(--shadow)}
     .range-row{margin:12px 0}
     .range-row label{display:flex;justify-content:space-between;gap:12px;margin-bottom:6px}
     input[type=range]{width:100%}
     .small-numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:14px}
     .small-box{background:#f5fffe;border-radius:14px;padding:9px 10px}
+    /* колесико */
+    .wheel-wrap{position:relative;width:300px;max-width:100%;aspect-ratio:1/1;margin-inline:auto}
+    .wheel{
+      width:100%;height:100%;
+      border-radius:50%;
+      background:conic-gradient(from 180deg, rgba(29,184,173,.18), rgba(55,217,207,.28), rgba(29,184,173,.18));
+      position:relative;
+      box-shadow:var(--glow),inset 0 0 40px rgba(0,0,0,.03);
+    }
+    .wheel::after{
+      content:"";position:absolute;inset:18px;border-radius:50%;
+      background:#fff;border:1px solid #e9f1f2;box-shadow:inset 0 6px 24px rgba(0,0,0,.04);
+    }
+    .needle{
+      position:absolute;left:50%;top:50%;
+      width:5px;height:44%;
+      background:linear-gradient(var(--brand),var(--brand-2));
+      transform-origin:bottom center;
+      transform:translate(-50%, -100%) rotate(0deg);
+      border-radius:999px;
+      transition:.5s cubic-bezier(.29,.75,.34,1.1);
+      z-index:3;
+    }
+    .wheel-center{
+      position:absolute;inset:35% 18%;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+      z-index:4;
+    }
+    .wheel-center .big{font-size:34px;font-weight:800;color:var(--brand)}
+    .wheel-center .muted{font-size:13px;color:#6a747a}
+
     footer{margin-top:32px;padding:28px 0 38px;background:#f4f7f8;text-align:center;color:#8a9397;font-size:13px}
 
     /* modal */
@@ -161,6 +211,7 @@
       .card{border-radius:18px}
       .page{padding:28px 0 32px}
       .benefits{grid-template-columns:1fr 1fr}
+      .wheel-wrap{width:230px}
     }
     @media (max-width:680px){
       .hero-title{font-size:32px}
@@ -218,7 +269,7 @@
         </div>
       </div>
 
-      <!-- блок преимуществ, чтобы не было пусто -->
+      <!-- блок преимуществ -->
       <div class="container" style="margin-top:30px">
         <h2 style="margin:0 0 14px;font-size:22px">Почему это удобно 👇</h2>
         <div class="benefits">
@@ -247,7 +298,7 @@
       <div class="container vac-layout">
         <div class="card">
           <h2>💼 Вакансия: специалист поддержки</h2>
-          <p><strong>LUMA</strong> — бренд, который уже больше 1,5 лет на Wildberries, Ozon и Яндекс.Маркете. Нам нужен внимательный и дружелюбный человек, который будет «голосом» компании в чате.</p>
+          <p><strong>LUMA</strong> — бренд, который уже больше 1,5 лет на маркетплейсах. Нам нужен внимательный и дружелюбный человек, который будет «голосом» компании в чате.</p>
           <h3>Чем предстоит заниматься</h3>
           <ul class="tick">
             <li>Чаты с клиентами (без звонков);</li>
@@ -290,28 +341,33 @@
           <h2>✍️ Отклик</h2>
           <p style="color:var(--ink-soft);margin-bottom:14px">Заполните форму — получите трек-код и отправьте его менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a>.</p>
           <form id="applyForm" class="form-grid">
-            <label class="input">
-              <input name="first_name" required placeholder="Имя 😊">
+            <label>
+              <div class="label-title">Имя 😊</div>
+              <div class="input"><input name="first_name" required placeholder="Алексей"></div>
             </label>
-            <label class="input">
-              <input name="last_name" required placeholder="Фамилия 😎">
+            <label>
+              <div class="label-title">Фамилия 😎</div>
+              <div class="input"><input name="last_name" required placeholder="Иванов"></div>
             </label>
-            <label class="input">
-              <input name="phone" required placeholder="Телефон 📱">
+            <label>
+              <div class="label-title">Телефон 📱</div>
+              <div class="input"><input name="phone" required placeholder="+7..."></div>
             </label>
-            <label class="input">
-              <input type="date" name="dob" required>
+            <label>
+              <div class="label-title">Дата рождения 📅</div>
+              <div class="input"><input type="date" name="dob" required></div>
             </label>
             <div>
-              <div style="margin-bottom:6px;color:#4c5a60">Платформа смартфона</div>
+              <div class="label-title">Платформа смартфона</div>
               <div class="segmented">
                 <div class="seg active" data-value="iPhone">🍏 iPhone</div>
                 <div class="seg" data-value="Android">🤖 Android</div>
               </div>
               <input type="hidden" name="platform" value="iPhone">
             </div>
-            <label class="input">
-              <input name="telegram" placeholder="Telegram (@username) ✈️">
+            <label>
+              <div class="label-title">Telegram (@username) ✈️</div>
+              <div class="input"><input name="telegram" placeholder="@luma"></div>
             </label>
             <button type="submit" class="btn">Зарегистрироваться</button>
           </form>
@@ -337,6 +393,21 @@
     <!-- КАЛЬКУЛЯТОР -->
     <section class="page" id="page-calculator">
       <div class="container calc-grid">
+        <!-- колесо -->
+        <div class="calc-card" style="display:flex;flex-direction:column;gap:12px;align-items:center">
+          <div class="wheel-wrap">
+            <div class="wheel" id="wheel">
+              <div class="needle" id="needle"></div>
+              <div class="wheel-center">
+                <div class="big" id="wheelHours">4 ч</div>
+                <div class="muted">в день</div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;color:#6a7379;font-size:13px">Поверните ползунок «Часов в день» — стрелка крутится 🔁</div>
+        </div>
+
+        <!-- слайдеры + вывод -->
         <div class="calc-card">
           <h2>📈 Калькулятор дохода</h2>
           <p style="color:var(--ink-soft)">Ставки: день — 800 ₽/ч, ночь — 1000 ₽/ч.</p>
@@ -367,17 +438,6 @@
             </div>
           </div>
         </div>
-        <div class="calc-card" style="background:linear-gradient(160deg,#ffffff,#e6fff9)">
-          <h3>Как считать 📌</h3>
-          <p>Мы берём дневные и ночные часы из вашего графика и перемножаем:</p>
-          <ul class="tick">
-            <li>Днём — 800 ₽/ч</li>
-            <li>Ночью — 1000 ₽/ч</li>
-            <li>Неделя — по выбранным дням</li>
-            <li>Месяц — неделя × 4,345</li>
-          </ul>
-          <p style="color:#6a7379;font-size:13px;margin-top:10px">Реальный доход зависит от выбранной площадки и доплат за переработки.</p>
-        </div>
       </div>
     </section>
 
@@ -387,7 +447,7 @@
         <h2>📞 Контакты</h2>
         <p><strong>Телефон:</strong> <a href="tel:+78002175350">8 800 217-53-50</a></p>
         <p><strong>Почта:</strong> <a href="mailto:info@luma.ru">info@luma.ru</a></p>
-        <p><strong>Мы на Ozon:</strong> <a target="_blank" href="https://www.ozon.ru/seller/luma-1745214/odezhda-obuv-i-aksessuary-7500/?__rr=2&abt_att=1&origin_referer=www.google.com&miniapp=seller_1745214">Профиль LUMA</a></p>
+        <p><strong>Мы на Ozon:</strong> <a target="_blank" href="https://www.ozon.ru/seller/luma-1745214/odezhda-obuv-i-aksessuary-7500/?__rr=2">Профиль LUMA</a></p>
         <p><strong>Мы на Wildberries:</strong> <a target="_blank" href="https://www.wildberries.ru/brands/311279305-luma-vos">Профиль LUMA</a></p>
         <h3>Юридическая информация</h3>
         <p>ОГРНИП 323320000032078 · ИНН 325507113530 · Индивидуальный предприниматель · Руководитель: Воснятин Лука Владимирович</p>
@@ -461,7 +521,6 @@
       platformHidden.value = seg.dataset.value;
     }));
 
-    // генерим новый код каждый раз
     let lastCode = null;
     function genCode(){
       let c;
@@ -481,42 +540,43 @@
     closeModal.addEventListener('click',()=>modal.style.display='none');
     modal.addEventListener('click',e=>{ if(e.target===modal) modal.style.display='none'; });
 
-    // сюда подставляешь свои переменные из Vercel
-    const BOT_TOKEN = "";  // <-- твой бот
-    const CHAT_ID   = "";  // <-- твоя группа
-
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form).entries());
       const code = genCode();
       openModal(code);
-      // чтобы в тг было с кодом:
-      const text =
-        `ЗАЯВКИ LUMA РАБОТА\n`+
-        `Новый отклик LUMA\n\n`+
-        `Имя: ${data.first_name}\n`+
-        `Фамилия: ${data.last_name}\n`+
-        `Телефон: ${data.phone}\n`+
-        `ДР: ${data.dob}\n`+
-        `Платформа: ${data.platform}\n`+
-        `Telegram: ${data.telegram || '-'}\n`+
-        `Трек-код: ${code}`;
-      if(BOT_TOKEN && CHAT_ID){
-        try{
-          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({chat_id:CHAT_ID,text,parse_mode:'HTML'})
-          });
-        }catch(err){ console.warn('Ошибка Telegram',err); }
+
+      // что будем отправлять на бэкенд
+      const payload = {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        phone: data.phone,
+        dob: data.dob,
+        platform: data.platform,
+        telegram: data.telegram || "-",
+        track_code: code,
+        site: location.origin
+      };
+
+      // ВАЖНО: путь должен совпадать с названием твоей функции в /api
+      // если у тебя /api/index.js — поставь "/api"
+      // если у тебя /api/send.js — поставь "/api/send"
+      try{
+        await fetch("/api/telegram",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify(payload)
+        });
+      }catch(err){
+        console.warn("Ошибка отправки на сервер:", err);
       }
-      // кнопка написать в тг
+
       tgBtn.href = "https://t.me/Luma_Ekaterina";
       form.reset();
       platformHidden.value="iPhone";
     });
 
-    // ===== калькулятор
+    // ===== калькулятор и колесо
     const hoursRange = document.getElementById('hoursRange');
     const daysRange = document.getElementById('daysRange');
     const nightRange = document.getElementById('nightRange');
@@ -526,6 +586,8 @@
     const dayIncome = document.getElementById('dayIncome');
     const weekIncome = document.getElementById('weekIncome');
     const monthIncome = document.getElementById('monthIncome');
+    const needle = document.getElementById('needle');
+    const wheelHours = document.getElementById('wheelHours');
 
     function recalc(){
       const h = +hoursRange.value;
@@ -542,6 +604,10 @@
       dayIncome.textContent = new Intl.NumberFormat('ru-RU').format(Math.round(daySum)) + ' ₽';
       weekIncome.textContent = new Intl.NumberFormat('ru-RU').format(Math.round(weekSum)) + ' ₽';
       monthIncome.textContent = new Intl.NumberFormat('ru-RU').format(Math.round(monthSum)) + ' ₽';
+
+      const angle = h/12*360;
+      needle.style.transform = `translate(-50%, -100%) rotate(${angle}deg)`;
+      wheelHours.textContent = h + ' ч';
     }
     [hoursRange,daysRange,nightRange].forEach(el=>el.addEventListener('input',recalc));
     recalc();
