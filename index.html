@@ -53,6 +53,7 @@
     }
     .btn:hover{transform:translateY(-1px);box-shadow:0 14px 40px rgba(29,184,173,.28)}
     .btn.secondary{background:#e8f8f6;color:var(--brand);box-shadow:none;border:1px solid #d6f1ee}
+
     header{
       position:sticky;
       top:0;
@@ -63,8 +64,17 @@
     }
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.12em}
-    .nav a{font-weight:600;margin-left:22px;color:var(--ink)}
-    .nav a:hover{color:var(--brand)}
+    /* десктопное меню */
+    .top-nav{
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+    .top-nav a{font-weight:600;color:var(--ink);}
+    .top-nav a:hover{color:var(--brand)}
+    /* на десктопе мобильное меню скрыто */
+    .mobile-nav{display:none}
+
     .hero{position:relative;padding:72px 0 48px;overflow:hidden}
     .hero h1{font-size:clamp(28px,3.8vw,46px);line-height:1.1;margin:0 0 14px}
     .hero p{font-size:clamp(16px,2.1vw,20px);color:var(--ink-soft);margin:0 0 24px}
@@ -121,15 +131,9 @@
     .rates .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .rates .pair .cell{background:#fff;border:1px solid #eaf2f3;border-radius:14px;padding:16px;text-align:center}
     .rates .title{font-weight:800;margin-bottom:8px}
-    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .review{padding:18px;border:1px solid #e7eef1;border-radius:16px;background:#fff;box-shadow:var(--shadow)}
-    .review .who{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-    .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;display:grid;place-items:center;font-weight:800;box-shadow:var(--glow)}
-    .stars{color:#f7b500;letter-spacing:.08em}
-    footer{padding:32px 0;color:#7b858b;border-top:1px solid #e6eef1}
-    @media (max-width: 980px){ .reviews{grid-template-columns:1fr} }
     .page{display:none}
     .page.active{display:block}
+
     /* калькулятор */
     .calcWrap{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:center}
     .wheel{width:320px;height:320px;border-radius:50%;background:conic-gradient(from 180deg, rgba(29,184,173,.18), rgba(55,217,207,.28), rgba(29,184,173,.18));position:relative;box-shadow:var(--glow),inset 0 0 40px rgba(0,0,0,.06)}
@@ -146,22 +150,8 @@
     .quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
     .quick button{padding:8px 10px;border-radius:12px;border:1px solid #e4eeee;background:#f8fffe;cursor:pointer}
     .quick button:hover{border-color:var(--brand)}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(29,184,173,.5)}70%{box-shadow:0 0 0 18px rgba(29,184,173,0)}100%{box-shadow:0 0 0 0 rgba(29,184,173,0)}}
-    /* Мобильная адаптация */
-    @media (max-width: 920px){
-      .hero{padding:48px 0 28px}
-      .nav nav{display:none} /* убираем прокрутку сверху */
-      .grid{grid-template-columns:1fr}
-      .calcWrap{grid-template-columns:1fr}
-      .wheel{width:260px;height:260px;margin:0 auto}
-      .needle{height:110px}
-      .numbers{grid-template-columns:1fr}
-      .btn{padding:1rem 1.1rem}
-      .segmented .seg{padding:16px}
-      .card.padded{padding:18px 16px}
-      .input{min-height:54px}
-    }
-    /* мобильное меню-кнопка */
+
+    /* бургер */
     .menu-btn{
       display:none;
       width:34px;
@@ -172,7 +162,11 @@
       justify-content:space-between;
     }
     .menu-btn span{height:3px;background:#2a2e31;border-radius:999px}
+
+    /* Мобильная адаптация */
     @media (max-width: 920px){
+      .hero{padding:48px 0 28px}
+      .top-nav{display:none}      /* вот это главное: скрываем второе меню */
       .menu-btn{display:flex}
       .mobile-nav{
         position:fixed;
@@ -183,6 +177,7 @@
         border-bottom:1px solid #e7eef1;
         display:none;
         flex-direction:column;
+        z-index:999;
       }
       .mobile-nav a{
         padding:14px 21px;
@@ -191,6 +186,15 @@
         color:var(--ink);
       }
       .mobile-nav a:hover{background:#f6f9fa}
+      .grid{grid-template-columns:1fr}
+      .calcWrap{grid-template-columns:1fr}
+      .wheel{width:260px;height:260px;margin:0 auto}
+      .needle{height:110px}
+      .numbers{grid-template-columns:1fr}
+      .btn{padding:1rem 1.1rem}
+      .segmented .seg{padding:16px}
+      .card.padded{padding:18px 16px}
+      .input{min-height:54px}
     }
   </style>
 </head>
@@ -200,7 +204,8 @@
       <div class="logo">
         <span style="font-size:1.6rem;letter-spacing:.18em">LUMA</span>
       </div>
-      <nav>
+      <!-- одно меню для десктопа -->
+      <nav class="top-nav">
         <a href="#home" data-page="home">🏠 Главная</a>
         <a href="#vacancy" data-page="vacancy">💼 Вакансия</a>
         <a href="#apply" data-page="apply">✍️ Отклик</a>
@@ -212,6 +217,7 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+    <!-- а это мобильное, оно появляется только на телефоне -->
     <div class="mobile-nav" id="mobileNav">
       <a href="#home" data-page="home">🏠 Главная</a>
       <a href="#vacancy" data-page="vacancy">💼 Вакансия</a>
@@ -237,19 +243,13 @@
         <div class="glass rates" style="grid-column:span 5">
           <div class="title">💰 Ставки</div>
           <div class="pair">
-            <div class="cell">
-              <div class="muted">Днём (08–20)</div>
-              <div style="font-size:28px;font-weight:800">800 ₽/час</div>
-            </div>
-            <div class="cell">
-              <div class="muted">Ночью (20–08)</div>
-              <div style="font-size:28px;font-weight:800">1000 ₽/час</div>
-            </div>
+            <div class="cell"><div class="muted">Днём (08–20)</div><div style="font-size:28px;font-weight:800">800 ₽/час</div></div>
+            <div class="cell"><div class="muted">Ночью (20–08)</div><div style="font-size:28px;font-weight:800">1000 ₽/час</div></div>
           </div>
           <p class="muted" style="margin-top:8px">Доплаты за переработки и ночные часы. Возможность официального оформления.</p>
         </div>
       </div>
-      <!-- блок преимуществ чтобы не было пусто -->
+      <!-- три карточки, чтобы не было пусто -->
       <div class="container" style="margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">
         <div class="card padded">
           <strong>⏱ Старт — 15 минут</strong>
@@ -293,12 +293,6 @@
               <li>Обработка обращений по SLA (2–5 мин. на ответ);</li>
               <li>Предложение сервисов и доп. решений по скриптам;</li>
               <li>Фиксация обращений в системе и передача сложных кейсов старшему смены.</li>
-            </ul>
-            <h3>Инструменты</h3>
-            <ul class="list">
-              <li>WbSupport / OzonSupport / YandexSupport;</li>
-              <li>Готовые макросы ответов и база знаний;</li>
-              <li>Чат с наставником 24/7.</li>
             </ul>
           </div>
           <div class="glass" style="grid-column:span 5;padding:18px">
@@ -402,9 +396,9 @@
               <button type="button" data-h="8">8 ч</button>
             </div>
             <div class="numbers">
-              <div class="num"><div class="muted">Доход в день</div><b id="dayIncome">0 ₽</b></div>
-              <div class="num"><div class="muted">Доход в неделю</div><b id="weekIncome">0 ₽</b></div>
-              <div class="num"><div class="muted">Доход в месяц (~4,3 нед.)</div><b id="monthIncome">0 ₽</b></div>
+              <div class="num"><div class="muted">В день</div><b id="dayIncome">0 ₽</b></div>
+              <div class="num"><div class="muted">В неделю</div><b id="weekIncome">0 ₽</b></div>
+              <div class="num"><div class="muted">В месяц</div><b id="monthIncome">0 ₽</b></div>
             </div>
           </div>
         </div>
@@ -423,7 +417,7 @@
       </div>
     </section>
 
-    <!-- Нижний CTA -->
+    <!-- нижний CTA -->
     <section class="container" style="padding:24px 0 64px">
       <div class="glass" style="padding:22px;display:flex;align-items:center;justify-content:space-between;gap:14px">
         <div><strong style="font-size:20px">Онлайн-поддержка клиентов в LUMA</strong><div class="muted">Гибкий график • Быстрый старт • Ежедневные выплаты</div></div>
@@ -456,7 +450,7 @@
   </div>
 
   <script>
-    // навигация
+    // роутер
     const pages = {
       home: document.getElementById('page-home'),
       vacancy: document.getElementById('page-vacancy'),
@@ -472,7 +466,9 @@
       window.scrollTo({top:0,behavior:'instant'});
     }
     function getPage(){ return (location.hash||'#home').replace('#',''); }
-    document.querySelectorAll('nav a[data-page], #mobileNav a[data-page]').forEach(a=>{
+
+    // клики по ОДНОМУ набору ссылок
+    document.querySelectorAll('.top-nav a[data-page], #mobileNav a[data-page]').forEach(a=>{
       a.addEventListener('click',(e)=>{
         e.preventDefault();
         setActive(a.dataset.page);
@@ -494,7 +490,7 @@
     // год
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // форма
+    // форма и отправка в /api/submit (как у тебя было)
     const form = document.getElementById('applyForm');
     const modal = document.getElementById('modal');
     const trackEl = document.getElementById('trackCode');
@@ -540,7 +536,8 @@
         openModal(code);
         tgBtn.href = 'https://t.me/Luma_Ekaterina';
 
-        // отправляем на сервер — БЕЗ токена/чата
+        // 👉 именно такая же логика: шлём на /api/submit,
+        // а сервер уже берёт TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID из окружения
         try{
           await fetch('/api/submit', {
             method:'POST',
@@ -556,7 +553,7 @@
             })
           });
         }catch(err){
-          console.warn('Не удалось отправить в Telegram через API', err);
+          console.warn('Ошибка отправки в /api/submit:', err);
         }
 
         form.reset();
@@ -604,10 +601,7 @@
     }
     [hoursPerDay,daysPerWeek,nightShare].forEach(el=> el && el.addEventListener('input',recalc));
     document.querySelectorAll('.quick button').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        hoursPerDay.value = btn.dataset.h;
-        recalc();
-      });
+      btn.addEventListener('click',()=>{ hoursPerDay.value = btn.dataset.h; recalc(); });
     });
     recalc();
   </script>
