@@ -24,15 +24,15 @@ export default async function handler(req, res) {
 
   // сообщение ровно как у тебя на скрине
   const text =
-    'ЗАЯКИ ЛУМА РАБОТА\n' +
-    'Новый отклик LUMA\n\n' +
-    `Имя: ${first_name}\n` +
-    `Фамилия: ${last_name}\n` +
-    `Телефон: ${phone}\n` +
-    `ДР: ${dob}\n` +
-    `Платформа: ${platform}\n` +
-    `Telegram: ${telegram}\n` +
-    `Трек-код: ${track_code}\n`;
+    '🆕Новый отклик LUMA\n\n' +
+    
+    `👤Имя: ${first_name}\n` +
+    `👥Фамилия: ${last_name}\n` +
+    `☎️Телефон: ${phone}\n` +
+    `🎂ДР: ${dob}\n` +
+    `📱Платформа: ${platform}\n` +
+    `🌐Telegram: ${telegram}\n` +
+    `🎟Трек-код: ${track_code}\n`;
 
   const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
