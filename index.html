@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LUMA — Специалист поддержки на маркетплейсах</title>
-  <meta name="description" content="Вакансия: Специалист поддержки на маркетплейсах. Удалённо, гибкий график от 2 часов, ежедневные выплаты, обучение 15 минут." />
-  <!-- Шрифт как ты хотел (похож на тот, что кидал) -->
+  <meta name="description" content="Вакансия: Специалист поддержки на маркетплейсах. Удалённо, гибкий график, быстрый старт, ежедневные выплаты." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,9 +17,8 @@
       --bg:#f6f9fa;
       --card:#ffffff;
       --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.06);
-      --glow:0 0 30px rgba(29,184,173,.28);
-      --header-h:62px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --glow:0 0 30px rgba(29,184,173,.35);
     }
     *{box-sizing:border-box}
     html,body{
@@ -28,131 +26,57 @@
       padding:0;
       background:var(--bg);
       color:var(--ink);
-      font-family:"Comfortaa", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      scroll-behavior:smooth;
+      font-family:'Comfortaa', Verdana, Geneva, Tahoma, sans-serif;
     }
-    a{color:inherit;text-decoration:none}
+    a{color:var(--brand);text-decoration:none}
     .container{width:min(1120px,92vw);margin-inline:auto}
+    .glass{
+      background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.9));
+      backdrop-filter:saturate(180%) blur(10px);
+      border:1px solid rgba(255,255,255,.6);
+      box-shadow:var(--shadow),var(--glow);
+      border-radius:var(--radius)
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:.95rem 1.25rem;
+      border-radius:14px;
+      border:none;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s transform,.2s box-shadow;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#fff;
+      box-shadow:var(--glow)
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 40px rgba(29,184,173,.28)}
+    .btn.secondary{background:#e8f8f6;color:var(--brand);box-shadow:none;border:1px solid #d6f1ee}
     header{
       position:sticky;
       top:0;
-      z-index:50;
-      background:rgba(246,249,250,.9);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid #e6edf1;
-      height:var(--header-h);
+      background:rgba(246,249,250,.8);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #e7eef1;
+      z-index:50
     }
-    .nav-line{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      height:var(--header-h);
-      gap:16px;
-    }
-    .logo{
-      font-weight:700;
-      letter-spacing:.14em;
-      font-size:22px;
-    }
-    nav.top-nav{
-      display:flex;
-      gap:18px;
-      align-items:center;
-    }
-    nav.top-nav a{
-      font-weight:600;
-      color:var(--ink);
-      display:flex;
-      gap:4px;
-      align-items:center;
-      font-size:15px;
-    }
-    nav.top-nav a:hover,
-    nav.top-nav a.active{color:var(--brand)}
-    /* Кнопка-бургер */
-    .menu-btn{
-      display:none;
-      width:36px;
-      height:28px;
-      border:0;
-      background:transparent;
-      flex-direction:column;
-      justify-content:space-between;
-      cursor:pointer;
-    }
-    .menu-btn span{
-      height:3px;
-      background:var(--ink);
-      border-radius:999px;
-    }
-    /* Мобильное меню — по умолчанию скрыто ВЕЗДЕ  */
-    .mobile-nav{display:none;}
-
-    .hero{
-      padding:62px 0 26px;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:26px;
-      align-items:center;
-    }
-    .hero h1{font-size:clamp(30px,4vw,46px);line-height:1.05;margin:0 0 14px}
-    .hero p{margin:0 0 18px;color:var(--ink-soft);font-size:16px}
-    .buttons{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;
-      gap:.5rem;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(135deg,var(--brand),var(--brand-2));
-      color:#fff;
-      border:none;
-      padding:.95rem 1.35rem;
-      border-radius:15px;
-      font-weight:700;
-      cursor:pointer;
-      box-shadow:var(--glow);
-      transition:.18s transform;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn.secondary{
-      background:#e8fbf9;
-      color:var(--brand);
-      box-shadow:none;
-      border:1px solid #cef2ef;
-    }
-    .rates-box{
-      background:linear-gradient(135deg,#ecfffd,#e7faf8);
-      border-radius:20px;
-      padding:18px;
-      box-shadow:var(--glow);
-    }
-    .rates-box .title{display:flex;gap:6px;font-weight:700;margin-bottom:10px}
-    .rates-box-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .rate-cell{
-      background:#fff;
-      border:1px solid #e7efef;
-      border-radius:14px;
-      text-align:center;
-      padding:14px 12px;
-    }
-    .rate-cell .muted{font-size:12px;color:var(--ink-soft);margin-bottom:3px}
-    /* секции-пстраницы */
-    .page{display:none;padding:56px 0}
-    .page.active{display:block}
-    .card{
-      background:#fff;
-      border:1px solid #ecf1f3;
-      border-radius:18px;
-      box-shadow:var(--shadow);
-    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.12em}
+    .nav a{font-weight:600;margin-left:22px;color:var(--ink)}
+    .nav a:hover{color:var(--brand)}
+    .hero{position:relative;padding:72px 0 48px;overflow:hidden}
+    .hero h1{font-size:clamp(28px,3.8vw,46px);line-height:1.1;margin:0 0 14px}
+    .hero p{font-size:clamp(16px,2.1vw,20px);color:var(--ink-soft);margin:0 0 24px}
+    .floating{position:absolute;inset:auto -160px -160px auto;width:520px;height:520px;background:radial-gradient(ellipse at 30% 30%,rgba(55,217,207,.35),transparent 60%);filter:blur(30px);transform:rotate(-15deg)}
+    .knot{position:absolute;inset:auto auto -140px -120px;width:360px;height:360px;background:conic-gradient(from 160deg,var(--brand),transparent 60%);filter:blur(30px);opacity:.55}
+    section{padding:64px 0}
+    h2{font-size:clamp(24px,3vw,34px);margin:0 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+    .card{background:var(--card);border:1px solid #ecf1f3;border-radius:var(--radius);box-shadow:var(--shadow)}
     .card.padded{padding:22px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .list{display:grid;gap:10px}
-    .list li{position:relative;padding-left:28px}
+    .list li{padding-left:28px;position:relative}
     .list li::before{
       content:"";
       position:absolute;
@@ -162,165 +86,129 @@
       height:14px;
       border-radius:4px;
       background:linear-gradient(135deg,var(--brand),var(--brand-2));
-      box-shadow:0 0 0 3px #e7faf8;
+      box-shadow:0 0 0 3px #e6faf8
     }
     .muted{color:var(--ink-soft);font-size:14px}
-    /* форма отклика */
     .input{
       display:flex;
       align-items:center;
-      gap:8px;
-      padding:13px 14px;
-      border:1px solid #dee7ea;
+      gap:10px;
+      padding:14px 16px;
       border-radius:14px;
+      border:1px solid #e3ebee;
       background:#fff;
+      min-height:52px;
     }
-    .input input{
-      all:unset;
-      flex:1;
-      font-size:15px;
-      color:var(--ink);
+    .input span.label{
+      min-width:120px;
+      font-size:13px;
+      color:var(--ink-soft);
     }
-    .segmented{display:flex;gap:10px}
+    .input input{all:unset;flex:1;color:var(--ink)}
+    .segmented{display:flex;gap:12px}
     .segmented .seg{
       flex:1;
       text-align:center;
-      border:1px solid #d8e6e4;
-      padding:13px 0;
+      padding:14px;
       border-radius:14px;
-      background:#fff;
-      font-weight:600;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
+      border:1px solid #e3ebee;
+      background:#fbffff;
+      font-weight:700;
+      cursor:pointer
     }
-    .seg.active{background:#eafffb;border-color:var(--brand);box-shadow:inset 0 0 0 1.5px rgba(29,184,173,.52)}
+    .seg.active{outline:3px solid #dff4f1;border-color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
+    .rates{position:relative;padding:16px;border-radius:18px;background:linear-gradient(135deg,#ecfffd,#e9faf8);box-shadow:var(--glow)}
+    .rates .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .rates .pair .cell{background:#fff;border:1px solid #eaf2f3;border-radius:14px;padding:16px;text-align:center}
+    .rates .title{font-weight:800;margin-bottom:8px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{padding:18px;border:1px solid #e7eef1;border-radius:16px;background:#fff;box-shadow:var(--shadow)}
+    .review .who{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;display:grid;place-items:center;font-weight:800;box-shadow:var(--glow)}
+    .stars{color:#f7b500;letter-spacing:.08em}
+    footer{padding:32px 0;color:#7b858b;border-top:1px solid #e6eef1}
+    @media (max-width: 980px){ .reviews{grid-template-columns:1fr} }
+    .page{display:none}
+    .page.active{display:block}
     /* калькулятор */
-    .calc-wrap{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:center}
-    .wheel{
-      width:320px;
-      height:320px;
-      border-radius:50%;
-      background:radial-gradient(circle at 50% 50%, rgba(29,184,173,.22), rgba(29,184,173,0) 60%);
-      border:18px solid rgba(231,250,248,1);
-      position:relative;
-      box-shadow:0 0 36px rgba(29,184,173,.35);
-      margin-inline:auto;
-    }
-    .wheel::after{
-      content:"";
-      position:absolute;
-      inset:26px;
-      background:#fff;
-      border-radius:50%;
-      border:1px solid rgba(223,238,236,.7);
-      box-shadow:inset 0 10px 26px rgba(0,0,0,.04);
-    }
-    .needle{
-      position:absolute;
-      left:50%;
-      top:50%;
-      width:4px;
-      height:135px;
-      background:linear-gradient(var(--brand),var(--brand-2));
-      transform-origin:bottom center;
-      transform:translate(-50%,-100%) rotate(0deg);
-      border-radius:999px;
-      transition:.6s cubic-bezier(.36,.8,.4,1);
-      z-index:3;
-    }
-    .wheel-center{
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%);
-      text-align:center;
-      z-index:4;
-    }
-    .wheel-center .big{font-size:40px;font-weight:800;color:var(--brand)}
-    .calc-row{display:grid;grid-template-columns:150px 1fr 90px;gap:10px;align-items:center;margin-bottom:12px}
-    .calc-row input[type=range]{width:100%}
-    .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-    .nums .num{background:#fff;border:1px solid #ecf1f3;border-radius:14px;padding:12px 14px}
-    .num b{font-size:20px}
-    footer{
-      padding:26px 0 48px;
-      text-align:center;
-      color:#7b858b;
-    }
-    /* модал */
-    #modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(16,23,34,.62);
-      z-index:200;
-      align-items:center;
-      justify-content:center;
-      padding:15px;
-    }
-    #modal .box{
-      max-width:540px;
-      width:100%;
-      background:#fff;
-      border-radius:18px;
-      box-shadow:0 12px 48px rgba(0,0,0,.25);
-    }
+    .calcWrap{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:center}
+    .wheel{width:320px;height:320px;border-radius:50%;background:conic-gradient(from 180deg, rgba(29,184,173,.18), rgba(55,217,207,.28), rgba(29,184,173,.18));position:relative;box-shadow:var(--glow),inset 0 0 40px rgba(0,0,0,.06)}
+    .wheel::after{content:"";position:absolute;inset:18px;border-radius:50%;background:#fff;border:1px solid #e9f1f2;box-shadow:inset 0 6px 24px rgba(0,0,0,.06)}
+    .needle{position:absolute;left:50%;top:50%;width:4px;height:140px;background:linear-gradient(var(--brand),var(--brand-2));transform-origin:bottom center;border-radius:999px;transform:translate(-50%, -100%) rotate(0deg);transition:.6s cubic-bezier(.2,.8,.2,1)}
+    .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;text-align:center}
+    .center .h{font-size:40px;font-weight:800;color:var(--brand)}
+    .center .caption{color:var(--ink-soft)}
+    .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+    .numbers .num{padding:14px;border:1px solid #e7eef1;border-radius:14px;background:#fff;text-align:center}
+    .num b{font-size:22px}
+    .calcRow{display:grid;grid-template-columns:1fr;gap:4px;align-items:flex-start;margin:10px 0}
+    .calcRow input[type=range]{width:100%}
+    .quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .quick button{padding:8px 10px;border-radius:12px;border:1px solid #e4eeee;background:#f8fffe;cursor:pointer}
+    .quick button:hover{border-color:var(--brand)}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(29,184,173,.5)}70%{box-shadow:0 0 0 18px rgba(29,184,173,0)}100%{box-shadow:0 0 0 0 rgba(29,184,173,0)}}
     /* Мобильная адаптация */
-    @media (max-width: 980px){
-      nav.top-nav{display:none}
-      .menu-btn{display:flex}
-      .hero{padding:52px 0 26px}
-      .hero-grid{grid-template-columns:1fr}
-      .calc-wrap{grid-template-columns:1fr}
-      .nums{grid-template-columns:1fr}
-      .two-col{grid-template-columns:1fr}
-    }
-    /* открытое меню */
-    .mobile-nav.open{display:flex !important}
     @media (max-width: 920px){
+      .hero{padding:48px 0 28px}
+      .nav nav{display:none} /* убираем прокрутку сверху */
+      .grid{grid-template-columns:1fr}
+      .calcWrap{grid-template-columns:1fr}
+      .wheel{width:260px;height:260px;margin:0 auto}
+      .needle{height:110px}
+      .numbers{grid-template-columns:1fr}
+      .btn{padding:1rem 1.1rem}
+      .segmented .seg{padding:16px}
+      .card.padded{padding:18px 16px}
+      .input{min-height:54px}
+    }
+    /* мобильное меню-кнопка */
+    .menu-btn{
+      display:none;
+      width:34px;
+      height:26px;
+      border:0;
+      background:transparent;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .menu-btn span{height:3px;background:#2a2e31;border-radius:999px}
+    @media (max-width: 920px){
+      .menu-btn{display:flex}
       .mobile-nav{
         position:fixed;
-        top:var(--header-h);
+        top:60px;
         left:0;
         right:0;
         background:#fff;
         border-bottom:1px solid #e7eef1;
         display:none;
         flex-direction:column;
-        z-index:100;
       }
       .mobile-nav a{
         padding:14px 21px;
-        border-bottom:1px solid #f3f6f8;
+        border-bottom:1px solid #f2f5f6;
         font-weight:600;
-        display:flex;
-        gap:8px;
-        align-items:center;
+        color:var(--ink);
       }
-      .hero h1{font-size:30px}
-      .calc-row{grid-template-columns:1fr}
-      .wheel{width:250px;height:250px}
-      .needle{height:105px}
-      .wheel-center .big{font-size:32px}
+      .mobile-nav a:hover{background:#f6f9fa}
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container nav-line">
-      <div class="logo">LUMA</div>
-      <nav class="top-nav">
+    <div class="container nav">
+      <div class="logo">
+        <span style="font-size:1.6rem;letter-spacing:.18em">LUMA</span>
+      </div>
+      <nav>
         <a href="#home" data-page="home">🏠 Главная</a>
         <a href="#vacancy" data-page="vacancy">💼 Вакансия</a>
         <a href="#apply" data-page="apply">✍️ Отклик</a>
         <a href="#howto" data-page="howto">🚀 Как начать</a>
-        <a href="#calculator" data-page="calculator">☑️ Калькулятор</a>
+        <a href="#calculator" data-page="calculator">📈 Калькулятор</a>
         <a href="#contacts" data-page="contacts">📞 Контакты</a>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Открыть меню">
+      <button class="menu-btn" id="menuBtn" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -329,31 +217,31 @@
       <a href="#vacancy" data-page="vacancy">💼 Вакансия</a>
       <a href="#apply" data-page="apply">✍️ Отклик</a>
       <a href="#howto" data-page="howto">🚀 Как начать</a>
-      <a href="#calculator" data-page="calculator">☑️ Калькулятор</a>
+      <a href="#calculator" data-page="calculator">📈 Калькулятор</a>
       <a href="#contacts" data-page="contacts">📞 Контакты</a>
     </div>
   </header>
 
   <main>
-    <!-- главная -->
-    <section class="page hero active" id="page-home">
-      <div class="container hero-grid">
-        <div>
-          <h1>💬 Онлайн-поддержка клиентов. <span style="color:var(--brand)">🌀 Начни зарабатывать с LUMA</span></h1>
+    <!-- ГЛАВНАЯ -->
+    <section class="page hero" id="page-home">
+      <div class="container grid" style="align-items:center">
+        <div style="grid-column:span 7">
+          <h1>💬 Онлайн-поддержка клиентов. <span style="color:var(--brand)">💸 Начни зарабатывать с LUMA</span></h1>
           <p>⚡ Старт за 15 минут: обучение, гибкий график от 2 часов в день, ежедневные выплаты.</p>
-          <div class="buttons">
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
             <a class="btn" href="#apply" data-page="apply">Откликнуться</a>
             <a class="btn secondary" href="#vacancy" data-page="vacancy">Подробнее о вакансии</a>
           </div>
         </div>
-        <div class="rates-box">
+        <div class="glass rates" style="grid-column:span 5">
           <div class="title">💰 Ставки</div>
-          <div class="rates-box-inner">
-            <div class="rate-cell">
+          <div class="pair">
+            <div class="cell">
               <div class="muted">Днём (08–20)</div>
               <div style="font-size:28px;font-weight:800">800 ₽/час</div>
             </div>
-            <div class="rate-cell">
+            <div class="cell">
               <div class="muted">Ночью (20–08)</div>
               <div style="font-size:28px;font-weight:800">1000 ₽/час</div>
             </div>
@@ -361,248 +249,260 @@
           <p class="muted" style="margin-top:8px">Доплаты за переработки и ночные часы. Возможность официального оформления.</p>
         </div>
       </div>
-      <!-- небольшой блок, чтобы не было пустоты -->
-      <div class="container" style="margin-top:26px">
-        <div class="card padded" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-          <div>
-            <strong>Готовы начать прямо сейчас? 🤝</strong>
-            <div class="muted">Менеджер свяжется в Telegram в течение нескольких минут.</div>
-          </div>
-          <a class="btn" href="#apply" data-page="apply">Перейти к отклику</a>
+      <!-- блок преимуществ чтобы не было пусто -->
+      <div class="container" style="margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">
+        <div class="card padded">
+          <strong>⏱ Старт — 15 минут</strong>
+          <p class="muted">Инструкция и приложение сразу после отклика.</p>
         </div>
+        <div class="card padded">
+          <strong>🕒 Гибкий график</strong>
+          <p class="muted">От 2 часов в день. Выбираете сами.</p>
+        </div>
+        <div class="card padded">
+          <strong>💸 Ежедневные выплаты</strong>
+          <p class="muted">Без задержек, по факту смены.</p>
+        </div>
+      </div>
+      <div class="floating" aria-hidden="true"></div>
+      <div class="knot" aria-hidden="true"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container" style="padding:24px 0 0">
+      <div class="card padded" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,#ffffff,#f2fffd)">
+        <div>
+          <strong style="font-size:20px">Готовы начать прямо сейчас?</strong>
+          <div class="muted">Отклик — 1 минута, ответ менеджера — в течение дня.</div>
+        </div>
+        <a class="btn" href="#apply" data-page="apply">Откликнуться</a>
       </div>
     </section>
 
-    <!-- вакансия -->
+    <!-- ВАКАНСИЯ -->
     <section class="page container" id="page-vacancy">
       <div class="card padded">
         <h2>💼 Вакансия: Специалист поддержки на маркетплейсах</h2>
-        <p><b>LUMA</b> — бренд, который более 1,5 лет успешно продаётся на Wildberries, Ozon и Яндекс.Маркет. Мы ищем внимательного и коммуникабельного человека, который станет «голосом» компании в чатах.</p>
-        <div class="two-col">
-          <div>
+        <p><strong>LUMA</strong> — бренд более 1,5 лет на маркетплейсах. Нужен внимательный и общительный человек, который будет помогать клиентам в чатах.</p>
+        <div class="grid" style="grid-template-columns:repeat(12,1fr);gap:18px">
+          <div style="grid-column:span 7">
             <h3>Чем предстоит заниматься</h3>
             <ul class="list">
-              <li>Отвечать клиентам в чате (без звонков);</li>
-              <li>Помогать с заказами, оплатой, доставкой и возвратами;</li>
-              <li>Объяснять особенности товаров и сервисов;</li>
-              <li>Работать по готовым скриптам и базе знаний;</li>
-              <li>Передавать сложные кейсы старшему смены.</li>
+              <li>Чаты с клиентами (без звонков);</li>
+              <li>Консультации по товарам, заказам, оплате, доставке и возвратам;</li>
+              <li>Обработка обращений по SLA (2–5 мин. на ответ);</li>
+              <li>Предложение сервисов и доп. решений по скриптам;</li>
+              <li>Фиксация обращений в системе и передача сложных кейсов старшему смены.</li>
             </ul>
-            <h3>Площадки на выбор</h3>
+            <h3>Инструменты</h3>
             <ul class="list">
-              <li>🟣 Wildberries</li>
-              <li>🔵 Ozon</li>
-              <li>🟡 Яндекс.Маркет</li>
+              <li>WbSupport / OzonSupport / YandexSupport;</li>
+              <li>Готовые макросы ответов и база знаний;</li>
+              <li>Чат с наставником 24/7.</li>
             </ul>
           </div>
-          <div>
+          <div class="glass" style="grid-column:span 5;padding:18px">
             <h3>Условия</h3>
             <ul class="list">
-              <li>Удалённо — можно с телефона или ПК;</li>
+              <li>Удалённо, можно с телефона или ПК;</li>
               <li>Свободный график — от 2 часов/день, смены по 2–12 часов;</li>
               <li>Оплата: день — 800 ₽/ч, ночь — 1000 ₽/ч + доплаты;</li>
               <li>Ежедневные выплаты без задержек;</li>
-              <li>Официально: самозанятость или ТК РФ;</li>
+              <li>Официально: самозанятость или ТК РФ.</li>
             </ul>
-            <a class="btn" href="#apply" data-page="apply">Откликнуться</a>
+            <div style="margin-top:10px"><a class="btn" href="#apply" data-page="apply">Откликнуться</a></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- отклик -->
+    <!-- ОТКЛИК -->
     <section class="page container" id="page-apply">
-      <div class="card padded" style="border:2px solid #d7fbf6;">
-        <h2>✍️ Отклик</h2>
+      <div class="card padded" style="border:2px solid #d7fbf6; box-shadow:0 12px 40px rgba(29,184,173,.18), var(--shadow)">
+        <h2 style="display:flex;align-items:center;gap:10px">✍️ Отклик</h2>
         <p class="muted">Заполните форму — получите трек-код и отправьте его менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a>.</p>
-        <form id="applyForm" style="display:grid;gap:14px">
+        <form id="applyForm" class="form" autocomplete="on" style="display:grid;gap:14px">
           <label class="input">
-            <input name="first_name" required placeholder="Имя 😊">
+            <input required name="first_name" placeholder="Имя 😊" />
           </label>
           <label class="input">
-            <input name="last_name" required placeholder="Фамилия 😎">
+            <input required name="last_name" placeholder="Фамилия 😎" />
           </label>
           <label class="input">
-            <input name="phone" required placeholder="Телефон 📱">
+            <input required name="phone" placeholder="Телефон 📱" />
           </label>
-          <!-- поле даты — теперь видно -->
-          <label class="input">
-            <input name="dob" type="date" required style="min-height:36px">
+          <label class="input" style="flex-wrap:wrap">
+            <span class="label">Дата рождения 🎂</span>
+            <input required type="date" name="dob" style="min-height:30px;padding:4px 0" />
           </label>
           <div>
-            <div class="muted" style="margin-bottom:6px">Платформа смартфона</div>
-            <div class="segmented" role="group">
+            <div class="muted" style="margin:4px 0 8px">Платформа смартфона</div>
+            <div class="segmented" role="group" aria-label="Платформа">
               <div class="seg active" data-value="iPhone">🍏 iPhone</div>
               <div class="seg" data-value="Android">🤖 Android</div>
             </div>
-            <input type="hidden" name="platform" value="iPhone">
+            <input type="hidden" name="platform" value="iPhone"/>
           </div>
           <label class="input">
-            <input name="telegram" placeholder="Telegram (@username) ✈️">
+            <input name="telegram" placeholder="Telegram (@username) ✈️" />
           </label>
           <button class="btn" type="submit">Зарегистрироваться</button>
-          <div class="muted">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</div>
         </form>
       </div>
     </section>
 
-    <!-- как начать -->
+    <!-- КАК НАЧАТЬ -->
     <section class="page container" id="page-howto">
       <div class="card padded">
         <h2>🚀 Как начать</h2>
         <ol class="list">
-          <li>Оставьте заявку и получите трек-код.</li>
-          <li>Напишите в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a>.</li>
-          <li>Получите приложение для работы (WbSupport / OzonSupport / YandexSupport).</li>
-          <li>Зарегистрируйтесь и укажите трек-код.</li>
-          <li>Пройдите обучение (15 минут).</li>
-          <li>Выходите на смену и получайте оплату каждый день.</li>
+          <li>Оставьте заявку — получите трек-код.</li>
+          <li>Напишите в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a> код и дождитесь инструкций.</li>
+          <li>Скачайте приложение и пройдите 15-минутное обучение.</li>
+          <li>Выберите смену и начните отвечать клиентам.</li>
         </ol>
+        <a class="btn" href="#apply" data-page="apply">Перейти к отклику</a>
       </div>
     </section>
 
-    <!-- калькулятор -->
+    <!-- КАЛЬКУЛЯТОР -->
     <section class="page container" id="page-calculator">
       <div class="card padded">
         <h2>📈 Калькулятор дохода</h2>
-        <p class="muted">Ставки: день — 800 ₽/час, ночь — 1000 ₽/час.</p>
-        <div class="calc-wrap">
+        <p class="muted">Поверните «колесо» или выберите пресет. Ставки: день — 800 ₽/ч, ночь — 1000 ₽/ч.</p>
+        <div class="calcWrap">
           <div class="wheel" id="wheel">
             <div class="needle" id="needle"></div>
-            <div class="wheel-center">
-              <div class="big" id="wheelHours">4</div>
-              <div class="muted">часа в день</div>
+            <div class="center">
+              <div class="h"><span id="hDisplay">4</span> ч</div>
+              <div class="caption">в день</div>
             </div>
           </div>
           <div>
-            <div class="calc-row">
-              <div>Часов в день:</div>
-              <input type="range" id="hoursPerDay" min="1" max="12" value="4">
+            <div class="calcRow">
+              <label for="hoursPerDay" class="muted">Часов в день</label>
+              <input id="hoursPerDay" type="range" min="1" max="12" step="1" value="4" />
               <div><b id="hoursPerDayVal">4</b> ч</div>
             </div>
-            <div class="calc-row">
-              <div>Дней в неделю:</div>
-              <input type="range" id="daysPerWeek" min="1" max="7" value="5">
+            <div class="calcRow">
+              <label for="daysPerWeek" class="muted">Дней в неделю</label>
+              <input id="daysPerWeek" type="range" min="1" max="7" step="1" value="5" />
               <div><b id="daysPerWeekVal">5</b> дн</div>
             </div>
-            <div class="calc-row">
-              <div>Ночные часы:</div>
-              <input type="range" id="nightShare" min="0" max="100" step="5" value="0">
+            <div class="calcRow">
+              <label for="nightShare" class="muted">Ночные часы</label>
+              <input id="nightShare" type="range" min="0" max="100" step="5" value="0" />
               <div><b id="nightShareVal">0</b>%</div>
             </div>
-            <div class="nums">
-              <div class="num">
-                <div class="muted">В день</div>
-                <b id="dayIncome">0 ₽</b>
-              </div>
-              <div class="num">
-                <div class="muted">В неделю</div>
-                <b id="weekIncome">0 ₽</b>
-              </div>
-              <div class="num">
-                <div class="muted">В месяц (~4,3 нед.)</div>
-                <b id="monthIncome">0 ₽</b>
-              </div>
+            <div class="quick">
+              <span class="muted">Быстрый выбор:</span>
+              <button type="button" data-h="2">2 ч</button>
+              <button type="button" data-h="4">4 ч</button>
+              <button type="button" data-h="6">6 ч</button>
+              <button type="button" data-h="8">8 ч</button>
+            </div>
+            <div class="numbers">
+              <div class="num"><div class="muted">Доход в день</div><b id="dayIncome">0 ₽</b></div>
+              <div class="num"><div class="muted">Доход в неделю</div><b id="weekIncome">0 ₽</b></div>
+              <div class="num"><div class="muted">Доход в месяц (~4,3 нед.)</div><b id="monthIncome">0 ₽</b></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- контакты -->
+    <!-- КОНТАКТЫ -->
     <section class="page container" id="page-contacts">
       <div class="card padded">
         <h2>📞 Контакты</h2>
-        <p><b>Телефон:</b> <a href="tel:+78002175350">8 800 217-53-50</a></p>
-        <p><b>Почта:</b> <a href="mailto:info@luma.ru">info@luma.ru</a></p>
-        <p><b>Мы на Ozon:</b> <a target="_blank" href="https://www.ozon.ru/seller/luma-1745214/odezhda-obuv-i-aksessuary-7500/?__rr=2&abt_att=1">Профиль LUMA на Ozon</a></p>
-        <p><b>Мы на Wildberries:</b> <a target="_blank" href="https://www.wildberries.ru/brands/311279305-luma-vos">Профиль LUMA на WB</a></p>
-        <p><b>Юридическая информация</b><br>
-          ОГРНИП 323320000032078 / ИНН 325507113530 / Руководитель: Воснятин Лука Владимирович<br>
-          Юр. адрес: 107023, г. Москва, Барабанный пер., д. 4 стр. 6, помещ. 5н/2
-        </p>
+        <p><strong>Телефон:</strong> <a href="tel:+78002175350">8 800 217-53-50</a></p>
+        <p><strong>Почта:</strong> <a href="mailto:info@luma.ru">info@luma.ru</a></p>
+        <p><strong>Мы на Ozon:</strong> <a target="_blank" href="https://www.ozon.ru/seller/luma-1745214/">Профиль LUMA на Ozon</a></p>
+        <p><strong>Мы на Wildberries:</strong> <a target="_blank" href="https://www.wildberries.ru/brands/311279305-luma-vos">Профиль LUMA на WB</a></p>
         <a class="btn" target="_blank" href="https://t.me/Luma_Ekaterina">Написать в Telegram</a>
+      </div>
+    </section>
+
+    <!-- Нижний CTA -->
+    <section class="container" style="padding:24px 0 64px">
+      <div class="glass" style="padding:22px;display:flex;align-items:center;justify-content:space-between;gap:14px">
+        <div><strong style="font-size:20px">Онлайн-поддержка клиентов в LUMA</strong><div class="muted">Гибкий график • Быстрый старт • Ежедневные выплаты</div></div>
+        <a class="btn" href="#apply" data-page="apply">Перейти к отклику</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      © 2025 LUMA. Все права защищены.
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+        <small>© <span id="year"></span> LUMA. Все права защищены.</small>
+      </div>
     </div>
   </footer>
 
-  <!-- модалка трек-кода -->
-  <div id="modal">
-    <div class="box card padded">
-      <div style="display:flex;align-items:center;gap:8px;color:#22c55e;font-weight:700">✔ Заявка отправлена!</div>
-      <h3 style="margin:10px 0 6px">Ваш трек-код:</h3>
-      <div id="trackCode" style="font-size:38px;font-weight:800;color:var(--brand);background:#e9fbf8;border:1px dashed #b9f2ea;border-radius:14px;padding:14px 16px;text-align:center">0000</div>
-      <p class="muted" style="margin:10px 0 12px">
-        Отправьте этот код менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a> для дальнейших указаний.
-      </p>
+  <!-- МОДАЛ -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none;position:fixed;inset:0;background:rgba(17,24,39,.6);align-items:center;justify-content:center;padding:20px;z-index:100">
+    <div class="box card padded" style="max-width:520px;width:100%">
+      <div style="display:flex;align-items:center;gap:10px;color:#22c55e;font-weight:800"><span style="font-size:18px">✔</span> Заявка отправлена!</div>
+      <h3 id="modalTitle" style="margin:10px 0 8px">Ваш трек-код:</h3>
+      <div class="track" id="trackCode" style="font-size:42px;font-weight:800;letter-spacing:.06em;color:var(--brand);background:#e9fbf8;border:1px dashed #b9f2ea;border-radius:14px;padding:14px 16px;text-align:center">0000</div>
+      <p class="muted" style="margin:12px 0 8px">Отправьте этот код менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a> для дальнейших указаний.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn" id="copyBtn">Скопировать код</button>
-        <a class="btn secondary" href="https://t.me/Luma_Ekaterina" target="_blank">Написать в Telegram</a>
+        <a class="btn secondary" target="_blank" id="tgBtn" href="https://t.me/Luma_Ekaterina">Написать в Telegram</a>
         <button class="btn secondary" id="closeModal">Закрыть</button>
       </div>
     </div>
   </div>
 
   <script>
-    // плавная навигация / SPA
+    // навигация
     const pages = {
       home: document.getElementById('page-home'),
       vacancy: document.getElementById('page-vacancy'),
       apply: document.getElementById('page-apply'),
       howto: document.getElementById('page-howto'),
       calculator: document.getElementById('page-calculator'),
-      contacts: document.getElementById('page-contacts')
+      contacts: document.getElementById('page-contacts'),
     };
     function setActive(page){
       Object.values(pages).forEach(p=>p.classList.remove('active'));
-      (pages[page] || pages.home).classList.add('active');
-      // подсветка ссылок
-      document.querySelectorAll('a[data-page]').forEach(a=>{
-        a.classList.toggle('active', a.dataset.page === page);
-      });
-      if(location.hash !== '#'+page) location.hash = '#'+page;
+      (pages[page]||pages.home).classList.add('active');
+      if(location.hash !== '#' + page){ location.hash = page; }
       window.scrollTo({top:0,behavior:'instant'});
     }
-    function getPageFromHash(){ return (location.hash||'#home').replace('#',''); }
-    document.querySelectorAll('a[data-page]').forEach(a=>{
-      a.addEventListener('click', e=>{
+    function getPage(){ return (location.hash||'#home').replace('#',''); }
+    document.querySelectorAll('nav a[data-page], #mobileNav a[data-page]').forEach(a=>{
+      a.addEventListener('click',(e)=>{
         e.preventDefault();
         setActive(a.dataset.page);
-        mobileNav.classList.remove('open');
+        mobileNav.style.display = 'none';
       });
     });
-    window.addEventListener('hashchange', ()=> setActive(getPageFromHash()));
-    setActive(getPageFromHash());
+    window.addEventListener('hashchange', ()=> setActive(getPage()));
+    setActive(getPage());
 
     // мобильное меню
     const menuBtn = document.getElementById('menuBtn');
     const mobileNav = document.getElementById('mobileNav');
-    menuBtn.addEventListener('click', ()=> mobileNav.classList.toggle('open'));
+    if(menuBtn){
+      menuBtn.addEventListener('click', ()=>{
+        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
 
-    // форма отклика
+    // год
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // форма
     const form = document.getElementById('applyForm');
-    const segs = document.querySelectorAll('.segmented .seg');
     const modal = document.getElementById('modal');
-    const trackCodeEl = document.getElementById('trackCode');
+    const trackEl = document.getElementById('trackCode');
     const copyBtn = document.getElementById('copyBtn');
     const closeModal = document.getElementById('closeModal');
+    const tgBtn = document.getElementById('tgBtn');
     let lastCode = null;
-
-    // выбор платформы
-    let hiddenPlatform = form.querySelector('input[name="platform"]');
-    segs.forEach(seg=>{
-      seg.addEventListener('click', ()=>{
-        segs.forEach(s=>s.classList.remove('active'));
-        seg.classList.add('active');
-        hiddenPlatform.value = seg.dataset.value;
-      });
-    });
+    let platformHidden;
 
     function genCode(){
       let code;
@@ -611,50 +511,63 @@
       return code;
     }
     function openModal(code){
-      trackCodeEl.textContent = code;
+      trackEl.textContent = code;
       modal.style.display = 'flex';
     }
-    copyBtn.addEventListener('click', ()=>{
-      navigator.clipboard.writeText(trackCodeEl.textContent).then(()=>{
-        copyBtn.textContent = 'Скопировано!';
-        setTimeout(()=> copyBtn.textContent = 'Скопировать код', 1500);
-      });
-    });
-    closeModal.addEventListener('click', ()=> modal.style.display='none');
 
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const code = genCode();
-      openModal(code);
+    if(form){
+      platformHidden = form.querySelector('input[name="platform"]');
+      const segs = document.querySelectorAll('.seg');
+      segs.forEach(seg=>seg.addEventListener('click',()=>{
+        segs.forEach(s=>s.classList.remove('active'));
+        seg.classList.add('active');
+        platformHidden.value = seg.dataset.value;
+      }));
 
-      // отправка на СВОЙ backend (как у тебя было)
-      // на Vercel у тебя лежит /api/telegram, туда и шлём
-      try{
-        await fetch('/api/telegram', {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({
-            first_name: data.first_name,
-            last_name: data.last_name,
-            phone: data.phone,
-            dob: data.dob,
-            platform: data.platform,
-            telegram: data.telegram || '-',
-            track_code: code
-          })
+      copyBtn.addEventListener('click',()=>{
+        navigator.clipboard.writeText(trackEl.textContent).then(()=>{
+          copyBtn.textContent='Скопировано!';
+          setTimeout(()=>copyBtn.textContent='Скопировать код',1500);
         });
-      }catch(err){
-        console.warn('Ошибка отправки в Telegram:', err);
-      }
+      });
+      closeModal.addEventListener('click',()=>modal.style.display='none');
 
-      form.reset();
-      hiddenPlatform.value = 'iPhone';
-      segs.forEach(s=>s.classList.remove('active'));
-      segs[0].classList.add('active');
-    });
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        const code = genCode();
+        openModal(code);
+        tgBtn.href = 'https://t.me/Luma_Ekaterina';
+
+        // отправляем на сервер — БЕЗ токена/чата
+        try{
+          await fetch('/api/submit', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({
+              first_name: data.first_name || '',
+              last_name: data.last_name || '',
+              phone: data.phone || '',
+              dob: data.dob || '',
+              platform: data.platform || 'iPhone',
+              telegram: data.telegram || '-',
+              track_code: code
+            })
+          });
+        }catch(err){
+          console.warn('Не удалось отправить в Telegram через API', err);
+        }
+
+        form.reset();
+        platformHidden.value='iPhone';
+        document.querySelectorAll('.seg').forEach((s,i)=> s.classList.toggle('active', i===0));
+      });
+    }
 
     // калькулятор
+    const needle = document.getElementById('needle');
+    const hDisplay = document.getElementById('hDisplay');
     const hoursPerDay = document.getElementById('hoursPerDay');
     const daysPerWeek = document.getElementById('daysPerWeek');
     const nightShare = document.getElementById('nightShare');
@@ -664,22 +577,21 @@
     const dayIncome = document.getElementById('dayIncome');
     const weekIncome = document.getElementById('weekIncome');
     const monthIncome = document.getElementById('monthIncome');
-    const needle = document.getElementById('needle');
-    const wheelHours = document.getElementById('wheelHours');
 
-    function fmt(n){return new Intl.NumberFormat('ru-RU').format(n)+' ₽';}
+    function fmt(n){ return new Intl.NumberFormat('ru-RU').format(n) + ' ₽'; }
     function spin(h){
-      const angle = h/12 * 360;
-      needle.style.transform = `translate(-50%, -100%) rotate(${angle}deg)`;
-      wheelHours.textContent = h;
+      const angle = h/12*360;
+      needle && (needle.style.transform = `translate(-50%, -100%) rotate(${angle}deg)`);
+      hDisplay && (hDisplay.textContent = h);
     }
     function recalc(){
+      if(!hoursPerDay) return;
       const h = +hoursPerDay.value;
       const d = +daysPerWeek.value;
-      const ns = +nightShare.value / 100;
-      const hNight = h * ns;
+      const ns = +nightShare.value/100;
+      const hNight = h*ns;
       const hDay = h - hNight;
-      const daySum = hDay * 800 + hNight * 1000;
+      const daySum = hDay*800 + hNight*1000;
       const weekSum = daySum * d;
       const monthSum = weekSum * 4.345;
       hoursPerDayVal.textContent = h;
@@ -690,7 +602,13 @@
       monthIncome.textContent = fmt(Math.round(monthSum));
       spin(h);
     }
-    [hoursPerDay, daysPerWeek, nightShare].forEach(el=>el.addEventListener('input', recalc));
+    [hoursPerDay,daysPerWeek,nightShare].forEach(el=> el && el.addEventListener('input',recalc));
+    document.querySelectorAll('.quick button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        hoursPerDay.value = btn.dataset.h;
+        recalc();
+      });
+    });
     recalc();
   </script>
 </body>
