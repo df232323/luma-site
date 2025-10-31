@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (!token || !chatId) return res.status(500).json({ error: 'Missing Telegram env vars' });
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
     const msg =
-      `<b>Новый отклик LUMA</b>%0A%0A` +
+      `<b>🆕Новый отклик LUMA</b>%0A%0A` +
       `👤Имя: ${body.first_name||'-'}%0A` +
       `👥Фамилия: ${body.last_name||'-'}%0A` +
       `☎️Телефон: ${body.phone||'-'}%0A` +
