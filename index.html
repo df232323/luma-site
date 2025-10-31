@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LUMA — Специалист поддержки</title>
-  <meta name="description" content="Вакансия: специалист поддержки на маркетплейсах. Удалённо, гибкий график, быстрый старт, ежедневные выплаты." />
+  <title>LUMA — Специалист поддержки на маркетплейсах</title>
+  <meta name="description" content="Вакансия: Специалист поддержки на маркетплейсах. Удалённо, гибкий график, быстрый старт, ежедневные выплаты." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,429 +12,399 @@
     :root{
       --brand:#1db8ad;
       --brand-2:#37d9cf;
-      --ink:#132027;
-      --ink-soft:#65727a;
-      --bg:#f3f7f8;
+      --ink:#2a2e31;
+      --ink-soft:#6c7378;
+      --bg:#f6f9fa;
       --card:#ffffff;
-      --radius:20px;
-      --shadow:0 10px 35px rgba(10,112,100,.08);
-      --glow:0 0 36px rgba(29,184,173,.3);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --glow:0 0 30px rgba(29,184,173,.35);
     }
     *{box-sizing:border-box}
     html,body{
       margin:0;
+      padding:0;
       background:var(--bg);
       color:var(--ink);
-      font-family:'Comfortaa', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:'Comfortaa', Verdana, Geneva, Tahoma, sans-serif;
     }
     a{color:var(--brand);text-decoration:none}
     .container{width:min(1120px,92vw);margin-inline:auto}
-    header{
-      position:sticky;top:0;
-      background:#f8fbfc;
-      border-bottom:1px solid rgba(0,0,0,.03);
-      z-index:90;
+    .glass{
+      background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.9));
+      backdrop-filter:saturate(180%) blur(10px);
+      border:1px solid rgba(255,255,255,.6);
+      box-shadow:var(--shadow),var(--glow);
+      border-radius:var(--radius)
     }
-    .nav{
-      height:62px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .logo-text{font-weight:800;letter-spacing:.12em;font-size:22px}
-    nav.links{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    nav.links a{
-      padding:6px 10px;
-      border-radius:14px;
-      font-weight:600;
-      color:#14191c;
-      white-space:nowrap;
-    }
-    nav.links a.active,
-    nav.links a:hover{background:#e4fffb;color:#057a72}
-    .burger{display:none;gap:4px;flex-direction:column;cursor:pointer}
-    .burger span{width:30px;height:3px;background:#0f1f23;border-radius:999px}
-
-    .page{display:none;padding:36px 0 42px}
-    .page.active{display:block}
-
-    /* hero */
-    .hero-wrap{
-      display:grid;
-      grid-template-columns:1.05fr .9fr;
-      gap:26px;
-      align-items:center;
-    }
-    .hero-title{font-size:clamp(30px,5vw,46px);line-height:1.05;margin-bottom:18px}
-    .hero-title span{color:var(--brand)}
-    .hero-sub{color:var(--ink-soft);margin-bottom:20px}
     .btn{
-      display:inline-flex;align-items:center;gap:.4rem;
-      padding:.9rem 1.25rem;
-      border-radius:16px;
-      background:linear-gradient(140deg,var(--brand),var(--brand-2));
-      color:#fff;font-weight:700;border:none;cursor:pointer;
-      box-shadow:var(--glow);
-    }
-    .btn.soft{background:#e0f9f6;color:var(--brand);box-shadow:none;border:1px solid #d2f1ee}
-    .rates-card{
-      background:radial-gradient(circle at 20% 30%,#e7fffb,#d6fdf8);
-      border-radius:20px;
-      padding:16px;
-      box-shadow:var(--glow);
-    }
-    .rates-grid{display:grid;grid-template-columns:repeat(2,minmax(130px,1fr));gap:12px}
-    .rates-cell{
-      background:#fff;border:1px solid rgba(0,0,0,.03);border-radius:14px;padding:14px 10px;text-align:center;
-    }
-    /* блок преимуществ */
-    .benefits{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      gap:16px;
-      margin-top:30px;
-    }
-    .benefit{
-      background:#fff;border-radius:16px;padding:14px;
-      border:1px solid rgba(0,0,0,.015);box-shadow:0 5px 20px rgba(0,0,0,.02);
-    }
-    .benefit strong{display:block;margin-bottom:5px}
-
-    /* vacancy */
-    .vac-layout{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-    .card{
-      background:#fff;border-radius:20px;padding:20px;box-shadow:var(--shadow);
-    }
-    ul.tick{margin:0;padding-left:0;display:flex;flex-direction:column;gap:9px}
-    ul.tick li{list-style:none;position:relative;padding-left:26px}
-    ul.tick li::before{
-      content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:4px;
-      background:linear-gradient(140deg,var(--brand),var(--brand-2));
-      box-shadow:0 0 0 4px rgba(214,255,250,.6);
-    }
-
-    /* apply form */
-    .form-grid{display:flex;flex-direction:column;gap:12px}
-    .input{
-      background:#fff;
-      border:1px solid rgba(10,95,90,.08);
-      border-radius:14px;
-      padding:12px 14px;
-      display:flex;
-      gap:8px;
+      display:inline-flex;
       align-items:center;
+      gap:.6rem;
+      padding:.95rem 1.25rem;
+      border-radius:14px;
+      border:none;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s transform,.2s box-shadow;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#fff;
+      box-shadow:var(--glow)
     }
-    .input input{
-      all:unset;
-      flex:1;
-      font-size:16px;
-      color:#101920;
+    .btn:hover{transform:translateY(-1px);box-shadow:0 14px 40px rgba(29,184,173,.28)}
+    .btn.secondary{background:#e8f8f6;color:var(--brand);box-shadow:none;border:1px solid #d6f1ee}
+    header{
+      position:sticky;
+      top:0;
+      background:rgba(246,249,250,.8);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #e7eef1;
+      z-index:50
     }
-    .input input[type=date]{color:#101920;font-weight:500}
-    .label-title{
-      font-size:14px;
-      color:#4a585f;
-      margin-bottom:4px;
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.12em}
+    .nav a{font-weight:600;margin-left:22px;color:var(--ink)}
+    .nav a:hover{color:var(--brand)}
+    .hero{position:relative;padding:72px 0 48px;overflow:hidden}
+    .hero h1{font-size:clamp(28px,3.8vw,46px);line-height:1.1;margin:0 0 14px}
+    .hero p{font-size:clamp(16px,2.1vw,20px);color:var(--ink-soft);margin:0 0 24px}
+    .floating{position:absolute;inset:auto -160px -160px auto;width:520px;height:520px;background:radial-gradient(ellipse at 30% 30%,rgba(55,217,207,.35),transparent 60%);filter:blur(30px);transform:rotate(-15deg)}
+    .knot{position:absolute;inset:auto auto -140px -120px;width:360px;height:360px;background:conic-gradient(from 160deg,var(--brand),transparent 60%);filter:blur(30px);opacity:.55}
+    section{padding:64px 0}
+    h2{font-size:clamp(24px,3vw,34px);margin:0 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+    .card{background:var(--card);border:1px solid #ecf1f3;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card.padded{padding:22px}
+    .list{display:grid;gap:10px}
+    .list li{padding-left:28px;position:relative}
+    .list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.55em;
+      width:14px;
+      height:14px;
+      border-radius:4px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:0 0 0 3px #e6faf8
     }
+    .muted{color:var(--ink-soft);font-size:14px}
+    .input{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid #e3ebee;
+      background:#fff;
+      min-height:52px;
+    }
+    .input span.label{
+      min-width:120px;
+      font-size:13px;
+      color:var(--ink-soft);
+    }
+    .input input{all:unset;flex:1;color:var(--ink)}
     .segmented{display:flex;gap:12px}
-    .seg{
-      flex:1;text-align:center;padding:10px;border-radius:14px;
-      background:#fff;border:1px solid #d3edeb;font-weight:600;cursor:pointer;display:flex;justify-content:center;gap:6px;
+    .segmented .seg{
+      flex:1;
+      text-align:center;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid #e3ebee;
+      background:#fbffff;
+      font-weight:700;
+      cursor:pointer
     }
-    .seg.active{background:#e4fffb;border-color:#33c2b6}
-
-    /* calculator */
-    .calc-grid{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:flex-start}
-    .calc-card{background:#fff;border-radius:20px;padding:18px;box-shadow:var(--shadow)}
-    .range-row{margin:12px 0}
-    .range-row label{display:flex;justify-content:space-between;gap:12px;margin-bottom:6px}
-    input[type=range]{width:100%}
-    .small-numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:14px}
-    .small-box{background:#f5fffe;border-radius:14px;padding:9px 10px}
-    /* колесико */
-    .wheel-wrap{position:relative;width:300px;max-width:100%;aspect-ratio:1/1;margin-inline:auto}
-    .wheel{
-      width:100%;height:100%;
-      border-radius:50%;
-      background:conic-gradient(from 180deg, rgba(29,184,173,.18), rgba(55,217,207,.28), rgba(29,184,173,.18));
-      position:relative;
-      box-shadow:var(--glow),inset 0 0 40px rgba(0,0,0,.03);
+    .seg.active{outline:3px solid #dff4f1;border-color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
+    .rates{position:relative;padding:16px;border-radius:18px;background:linear-gradient(135deg,#ecfffd,#e9faf8);box-shadow:var(--glow)}
+    .rates .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .rates .pair .cell{background:#fff;border:1px solid #eaf2f3;border-radius:14px;padding:16px;text-align:center}
+    .rates .title{font-weight:800;margin-bottom:8px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{padding:18px;border:1px solid #e7eef1;border-radius:16px;background:#fff;box-shadow:var(--shadow)}
+    .review .who{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;display:grid;place-items:center;font-weight:800;box-shadow:var(--glow)}
+    .stars{color:#f7b500;letter-spacing:.08em}
+    footer{padding:32px 0;color:#7b858b;border-top:1px solid #e6eef1}
+    @media (max-width: 980px){ .reviews{grid-template-columns:1fr} }
+    .page{display:none}
+    .page.active{display:block}
+    /* калькулятор */
+    .calcWrap{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:center}
+    .wheel{width:320px;height:320px;border-radius:50%;background:conic-gradient(from 180deg, rgba(29,184,173,.18), rgba(55,217,207,.28), rgba(29,184,173,.18));position:relative;box-shadow:var(--glow),inset 0 0 40px rgba(0,0,0,.06)}
+    .wheel::after{content:"";position:absolute;inset:18px;border-radius:50%;background:#fff;border:1px solid #e9f1f2;box-shadow:inset 0 6px 24px rgba(0,0,0,.06)}
+    .needle{position:absolute;left:50%;top:50%;width:4px;height:140px;background:linear-gradient(var(--brand),var(--brand-2));transform-origin:bottom center;border-radius:999px;transform:translate(-50%, -100%) rotate(0deg);transition:.6s cubic-bezier(.2,.8,.2,1)}
+    .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;text-align:center}
+    .center .h{font-size:40px;font-weight:800;color:var(--brand)}
+    .center .caption{color:var(--ink-soft)}
+    .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+    .numbers .num{padding:14px;border:1px solid #e7eef1;border-radius:14px;background:#fff;text-align:center}
+    .num b{font-size:22px}
+    .calcRow{display:grid;grid-template-columns:1fr;gap:4px;align-items:flex-start;margin:10px 0}
+    .calcRow input[type=range]{width:100%}
+    .quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .quick button{padding:8px 10px;border-radius:12px;border:1px solid #e4eeee;background:#f8fffe;cursor:pointer}
+    .quick button:hover{border-color:var(--brand)}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(29,184,173,.5)}70%{box-shadow:0 0 0 18px rgba(29,184,173,0)}100%{box-shadow:0 0 0 0 rgba(29,184,173,0)}}
+    /* Мобильная адаптация */
+    @media (max-width: 920px){
+      .hero{padding:48px 0 28px}
+      .nav nav{display:none} /* убираем прокрутку сверху */
+      .grid{grid-template-columns:1fr}
+      .calcWrap{grid-template-columns:1fr}
+      .wheel{width:260px;height:260px;margin:0 auto}
+      .needle{height:110px}
+      .numbers{grid-template-columns:1fr}
+      .btn{padding:1rem 1.1rem}
+      .segmented .seg{padding:16px}
+      .card.padded{padding:18px 16px}
+      .input{min-height:54px}
     }
-    .wheel::after{
-      content:"";position:absolute;inset:18px;border-radius:50%;
-      background:#fff;border:1px solid #e9f1f2;box-shadow:inset 0 6px 24px rgba(0,0,0,.04);
+    /* мобильное меню-кнопка */
+    .menu-btn{
+      display:none;
+      width:34px;
+      height:26px;
+      border:0;
+      background:transparent;
+      flex-direction:column;
+      justify-content:space-between;
     }
-    .needle{
-      position:absolute;left:50%;top:50%;
-      width:5px;height:44%;
-      background:linear-gradient(var(--brand),var(--brand-2));
-      transform-origin:bottom center;
-      transform:translate(-50%, -100%) rotate(0deg);
-      border-radius:999px;
-      transition:.5s cubic-bezier(.29,.75,.34,1.1);
-      z-index:3;
-    }
-    .wheel-center{
-      position:absolute;inset:35% 18%;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-      z-index:4;
-    }
-    .wheel-center .big{font-size:34px;font-weight:800;color:var(--brand)}
-    .wheel-center .muted{font-size:13px;color:#6a747a}
-
-    footer{margin-top:32px;padding:28px 0 38px;background:#f4f7f8;text-align:center;color:#8a9397;font-size:13px}
-
-    /* modal */
-    #modal{display:none;position:fixed;inset:0;background:rgba(2,18,25,.55);z-index:200;align-items:center;justify-content:center;padding:14px}
-    #modal .box{background:#fff;border-radius:20px;padding:16px 16px 18px;max-width:480px;width:100%;box-shadow:0 15px 45px rgba(0,0,0,.15)}
-    #trackCode{font-size:46px;font-weight:800;background:#ddfcf5;border-radius:16px;text-align:center;border:1px dashed rgba(0,0,0,.07);padding:12px 10px;margin-bottom:12px;color:var(--brand)}
-    .modal-btns{display:flex;flex-wrap:wrap;gap:10px}
-
-    /* mobile */
-    @media (max-width:980px){
-      nav.links{display:none;position:absolute;left:0;right:0;top:62px;background:#f8fbfc;border-bottom:1px solid rgba(0,0,0,.03);flex-direction:column;padding:8px 16px 16px;gap:8px}
-      nav.links.show{display:flex}
-      .burger{display:flex}
-      .hero-wrap{grid-template-columns:1fr}
-      .vac-layout{grid-template-columns:1fr}
-      .calc-grid{grid-template-columns:1fr}
-      .rates-grid{grid-template-columns:1fr 1fr}
-      .card{border-radius:18px}
-      .page{padding:28px 0 32px}
-      .benefits{grid-template-columns:1fr 1fr}
-      .wheel-wrap{width:230px}
-    }
-    @media (max-width:680px){
-      .hero-title{font-size:32px}
-      .segmented{flex-direction:row}
-      .rates-grid{grid-template-columns:1fr}
-      .benefits{grid-template-columns:1fr}
-      .input input{font-size:15px}
-      footer{font-size:12px}
+    .menu-btn span{height:3px;background:#2a2e31;border-radius:999px}
+    @media (max-width: 920px){
+      .menu-btn{display:flex}
+      .mobile-nav{
+        position:fixed;
+        top:60px;
+        left:0;
+        right:0;
+        background:#fff;
+        border-bottom:1px solid #e7eef1;
+        display:none;
+        flex-direction:column;
+      }
+      .mobile-nav a{
+        padding:14px 21px;
+        border-bottom:1px solid #f2f5f6;
+        font-weight:600;
+        color:var(--ink);
+      }
+      .mobile-nav a:hover{background:#f6f9fa}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="logo-text">LUMA</div>
-      <nav class="links" id="topNav">
-        <a href="#home" data-page="home" class="active">🏠 Главная</a>
+      <div class="logo">
+        <span style="font-size:1.6rem;letter-spacing:.18em">LUMA</span>
+      </div>
+      <nav>
+        <a href="#home" data-page="home">🏠 Главная</a>
         <a href="#vacancy" data-page="vacancy">💼 Вакансия</a>
         <a href="#apply" data-page="apply">✍️ Отклик</a>
         <a href="#howto" data-page="howto">🚀 Как начать</a>
         <a href="#calculator" data-page="calculator">📈 Калькулятор</a>
         <a href="#contacts" data-page="contacts">📞 Контакты</a>
       </nav>
-      <div class="burger" id="burger">
+      <button class="menu-btn" id="menuBtn" aria-label="Меню">
         <span></span><span></span><span></span>
-      </div>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home" data-page="home">🏠 Главная</a>
+      <a href="#vacancy" data-page="vacancy">💼 Вакансия</a>
+      <a href="#apply" data-page="apply">✍️ Отклик</a>
+      <a href="#howto" data-page="howto">🚀 Как начать</a>
+      <a href="#calculator" data-page="calculator">📈 Калькулятор</a>
+      <a href="#contacts" data-page="contacts">📞 Контакты</a>
     </div>
   </header>
 
   <main>
     <!-- ГЛАВНАЯ -->
-    <section class="page active" id="page-home">
-      <div class="container hero-wrap">
-        <div>
-          <h1 class="hero-title">💬 Онлайн-поддержка клиентов. <span>Начни зарабатывать с LUMA</span></h1>
-          <p class="hero-sub">⚡ Старт за 15 минут: обучение, гибкий график от 2 часов в день, ежедневные выплаты.</p>
+    <section class="page hero" id="page-home">
+      <div class="container grid" style="align-items:center">
+        <div style="grid-column:span 7">
+          <h1>💬 Онлайн-поддержка клиентов. <span style="color:var(--brand)">💸 Начни зарабатывать с LUMA</span></h1>
+          <p>⚡ Старт за 15 минут: обучение, гибкий график от 2 часов в день, ежедневные выплаты.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
             <a class="btn" href="#apply" data-page="apply">Откликнуться</a>
-            <a class="btn soft" href="#vacancy" data-page="vacancy">Подробнее о вакансии</a>
+            <a class="btn secondary" href="#vacancy" data-page="vacancy">Подробнее о вакансии</a>
           </div>
         </div>
-        <div class="rates-card">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px"><span>🪙</span><strong>Ставки</strong></div>
-          <div class="rates-grid">
-            <div class="rates-cell">
-              <div style="color:#7a8388;font-size:13px">Днём (08–20)</div>
-              <div style="font-size:27px;font-weight:800">800 ₽/час</div>
+        <div class="glass rates" style="grid-column:span 5">
+          <div class="title">💰 Ставки</div>
+          <div class="pair">
+            <div class="cell">
+              <div class="muted">Днём (08–20)</div>
+              <div style="font-size:28px;font-weight:800">800 ₽/час</div>
             </div>
-            <div class="rates-cell">
-              <div style="color:#7a8388;font-size:13px">Ночью (20–08)</div>
-              <div style="font-size:27px;font-weight:800">1000 ₽/час</div>
+            <div class="cell">
+              <div class="muted">Ночью (20–08)</div>
+              <div style="font-size:28px;font-weight:800">1000 ₽/час</div>
             </div>
           </div>
-          <p style="margin-top:9px;color:#6b757a;font-size:13px">Доплаты за переработки и ночные часы. Официальное оформление.</p>
+          <p class="muted" style="margin-top:8px">Доплаты за переработки и ночные часы. Возможность официального оформления.</p>
         </div>
       </div>
-
-      <!-- блок преимуществ -->
-      <div class="container" style="margin-top:30px">
-        <h2 style="margin:0 0 14px;font-size:22px">Почему это удобно 👇</h2>
-        <div class="benefits">
-          <div class="benefit">
-            <strong>🏠 Удалённо</strong>
-            <span>Можно с телефона — подходит студентам и мамам.</span>
-          </div>
-          <div class="benefit">
-            <strong>⏱ Свободный график</strong>
-            <span>От 2 часов в день — сами выбираете смены.</span>
-          </div>
-          <div class="benefit">
-            <strong>📲 Обучение 15 минут</strong>
-            <span>Видео + скрипты по выбранной площадке.</span>
-          </div>
-          <div class="benefit">
-            <strong>💸 Ежедневные выплаты</strong>
-            <span>День — 800 ₽/ч, ночь — 1000 ₽/ч.</span>
-          </div>
+      <!-- блок преимуществ чтобы не было пусто -->
+      <div class="container" style="margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">
+        <div class="card padded">
+          <strong>⏱ Старт — 15 минут</strong>
+          <p class="muted">Инструкция и приложение сразу после отклика.</p>
         </div>
+        <div class="card padded">
+          <strong>🕒 Гибкий график</strong>
+          <p class="muted">От 2 часов в день. Выбираете сами.</p>
+        </div>
+        <div class="card padded">
+          <strong>💸 Ежедневные выплаты</strong>
+          <p class="muted">Без задержек, по факту смены.</p>
+        </div>
+      </div>
+      <div class="floating" aria-hidden="true"></div>
+      <div class="knot" aria-hidden="true"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container" style="padding:24px 0 0">
+      <div class="card padded" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,#ffffff,#f2fffd)">
+        <div>
+          <strong style="font-size:20px">Готовы начать прямо сейчас?</strong>
+          <div class="muted">Отклик — 1 минута, ответ менеджера — в течение дня.</div>
+        </div>
+        <a class="btn" href="#apply" data-page="apply">Откликнуться</a>
       </div>
     </section>
 
     <!-- ВАКАНСИЯ -->
-    <section class="page" id="page-vacancy">
-      <div class="container vac-layout">
-        <div class="card">
-          <h2>💼 Вакансия: специалист поддержки</h2>
-          <p><strong>LUMA</strong> — бренд, который уже больше 1,5 лет на маркетплейсах. Нам нужен внимательный и дружелюбный человек, который будет «голосом» компании в чате.</p>
-          <h3>Чем предстоит заниматься</h3>
-          <ul class="tick">
-            <li>Чаты с клиентами (без звонков);</li>
-            <li>Помощь по заказам, оплате, доставке и возвратам;</li>
-            <li>Консультации по товарам и услугам;</li>
-            <li>Работа по сценариям и базе знаний;</li>
-            <li>Передача сложных кейсов старшему специалисту.</li>
-          </ul>
-          <h3 style="margin-top:16px">Инструменты</h3>
-          <ul class="tick">
-            <li>WbSupport / OzonSupport / YandexSupport — по выбранной площадке;</li>
-            <li>Готовые тексты и шаблоны;</li>
-            <li>Чат с наставником 24/7.</li>
-          </ul>
-        </div>
-        <div class="card" style="background:linear-gradient(145deg,#ffffff 0%,#edfffd 100%)">
-          <h3>Условия</h3>
-          <ul class="tick">
-            <li>Удалённо — можно с телефона или ПК;</li>
-            <li>Свободный график: от 2 часов/день, смены 2–12 часов;</li>
-            <li>Оплата: день — 800 ₽/ч, ночь — 1000 ₽/ч + доплаты;</li>
-            <li>Ежедневные выплаты без задержек;</li>
-            <li>Официально: самозанятость или ТК РФ.</li>
-          </ul>
-          <h3 style="margin-top:14px">Рост</h3>
-          <ul class="tick">
-            <li>Бонусы за скорость и качество;</li>
-            <li>Переход на старшего смены;</li>
-            <li>Выбор площадки: WB / Ozon / Яндекс.Маркет.</li>
-          </ul>
-          <a class="btn" href="#apply" data-page="apply" style="margin-top:18px">Откликнуться</a>
+    <section class="page container" id="page-vacancy">
+      <div class="card padded">
+        <h2>💼 Вакансия: Специалист поддержки на маркетплейсах</h2>
+        <p><strong>LUMA</strong> — бренд более 1,5 лет на маркетплейсах. Нужен внимательный и общительный человек, который будет помогать клиентам в чатах.</p>
+        <div class="grid" style="grid-template-columns:repeat(12,1fr);gap:18px">
+          <div style="grid-column:span 7">
+            <h3>Чем предстоит заниматься</h3>
+            <ul class="list">
+              <li>Чаты с клиентами (без звонков);</li>
+              <li>Консультации по товарам, заказам, оплате, доставке и возвратам;</li>
+              <li>Обработка обращений по SLA (2–5 мин. на ответ);</li>
+              <li>Предложение сервисов и доп. решений по скриптам;</li>
+              <li>Фиксация обращений в системе и передача сложных кейсов старшему смены.</li>
+            </ul>
+            <h3>Инструменты</h3>
+            <ul class="list">
+              <li>WbSupport / OzonSupport / YandexSupport;</li>
+              <li>Готовые макросы ответов и база знаний;</li>
+              <li>Чат с наставником 24/7.</li>
+            </ul>
+          </div>
+          <div class="glass" style="grid-column:span 5;padding:18px">
+            <h3>Условия</h3>
+            <ul class="list">
+              <li>Удалённо, можно с телефона или ПК;</li>
+              <li>Свободный график — от 2 часов/день, смены по 2–12 часов;</li>
+              <li>Оплата: день — 800 ₽/ч, ночь — 1000 ₽/ч + доплаты;</li>
+              <li>Ежедневные выплаты без задержек;</li>
+              <li>Официально: самозанятость или ТК РФ.</li>
+            </ul>
+            <div style="margin-top:10px"><a class="btn" href="#apply" data-page="apply">Откликнуться</a></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ОТКЛИК -->
-    <section class="page" id="page-apply">
-      <div class="container">
-        <div class="card" style="border:2px solid #ddfffa">
-          <h2>✍️ Отклик</h2>
-          <p style="color:var(--ink-soft);margin-bottom:14px">Заполните форму — получите трек-код и отправьте его менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a>.</p>
-          <form id="applyForm" class="form-grid">
-            <label>
-              <div class="label-title">Имя 😊</div>
-              <div class="input"><input name="first_name" required placeholder="Алексей"></div>
-            </label>
-            <label>
-              <div class="label-title">Фамилия 😎</div>
-              <div class="input"><input name="last_name" required placeholder="Иванов"></div>
-            </label>
-            <label>
-              <div class="label-title">Телефон 📱</div>
-              <div class="input"><input name="phone" required placeholder="+7..."></div>
-            </label>
-            <label>
-              <div class="label-title">Дата рождения 📅</div>
-              <div class="input"><input type="date" name="dob" required></div>
-            </label>
-            <div>
-              <div class="label-title">Платформа смартфона</div>
-              <div class="segmented">
-                <div class="seg active" data-value="iPhone">🍏 iPhone</div>
-                <div class="seg" data-value="Android">🤖 Android</div>
-              </div>
-              <input type="hidden" name="platform" value="iPhone">
+    <section class="page container" id="page-apply">
+      <div class="card padded" style="border:2px solid #d7fbf6; box-shadow:0 12px 40px rgba(29,184,173,.18), var(--shadow)">
+        <h2 style="display:flex;align-items:center;gap:10px">✍️ Отклик</h2>
+        <p class="muted">Заполните форму — получите трек-код и отправьте его менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a>.</p>
+        <form id="applyForm" class="form" autocomplete="on" style="display:grid;gap:14px">
+          <label class="input">
+            <input required name="first_name" placeholder="Имя 😊" />
+          </label>
+          <label class="input">
+            <input required name="last_name" placeholder="Фамилия 😎" />
+          </label>
+          <label class="input">
+            <input required name="phone" placeholder="Телефон 📱" />
+          </label>
+          <label class="input" style="flex-wrap:wrap">
+            <span class="label">Дата рождения 🎂</span>
+            <input required type="date" name="dob" style="min-height:30px;padding:4px 0" />
+          </label>
+          <div>
+            <div class="muted" style="margin:4px 0 8px">Платформа смартфона</div>
+            <div class="segmented" role="group" aria-label="Платформа">
+              <div class="seg active" data-value="iPhone">🍏 iPhone</div>
+              <div class="seg" data-value="Android">🤖 Android</div>
             </div>
-            <label>
-              <div class="label-title">Telegram (@username) ✈️</div>
-              <div class="input"><input name="telegram" placeholder="@luma"></div>
-            </label>
-            <button type="submit" class="btn">Зарегистрироваться</button>
-          </form>
-        </div>
+            <input type="hidden" name="platform" value="iPhone"/>
+          </div>
+          <label class="input">
+            <input name="telegram" placeholder="Telegram (@username) ✈️" />
+          </label>
+          <button class="btn" type="submit">Зарегистрироваться</button>
+        </form>
       </div>
     </section>
 
     <!-- КАК НАЧАТЬ -->
-    <section class="page" id="page-howto">
-      <div class="container card">
+    <section class="page container" id="page-howto">
+      <div class="card padded">
         <h2>🚀 Как начать</h2>
-        <ol style="padding-left:16px;display:flex;flex-direction:column;gap:6px">
+        <ol class="list">
           <li>Оставьте заявку — получите трек-код.</li>
-          <li>Напишите в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a>.</li>
-          <li>Менеджер пришлёт приложение: WbSupport / OzonSupport / YandexSupport.</li>
-          <li>Укажите трек-код — это ускорит доступ.</li>
-          <li>Пройдите обучение (15 минут).</li>
-          <li>Выходите на смену и получайте оплату каждый день.</li>
+          <li>Напишите в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a> код и дождитесь инструкций.</li>
+          <li>Скачайте приложение и пройдите 15-минутное обучение.</li>
+          <li>Выберите смену и начните отвечать клиентам.</li>
         </ol>
+        <a class="btn" href="#apply" data-page="apply">Перейти к отклику</a>
       </div>
     </section>
 
     <!-- КАЛЬКУЛЯТОР -->
-    <section class="page" id="page-calculator">
-      <div class="container calc-grid">
-        <!-- колесо -->
-        <div class="calc-card" style="display:flex;flex-direction:column;gap:12px;align-items:center">
-          <div class="wheel-wrap">
-            <div class="wheel" id="wheel">
-              <div class="needle" id="needle"></div>
-              <div class="wheel-center">
-                <div class="big" id="wheelHours">4 ч</div>
-                <div class="muted">в день</div>
-              </div>
+    <section class="page container" id="page-calculator">
+      <div class="card padded">
+        <h2>📈 Калькулятор дохода</h2>
+        <p class="muted">Поверните «колесо» или выберите пресет. Ставки: день — 800 ₽/ч, ночь — 1000 ₽/ч.</p>
+        <div class="calcWrap">
+          <div class="wheel" id="wheel">
+            <div class="needle" id="needle"></div>
+            <div class="center">
+              <div class="h"><span id="hDisplay">4</span> ч</div>
+              <div class="caption">в день</div>
             </div>
           </div>
-          <div style="text-align:center;color:#6a7379;font-size:13px">Поверните ползунок «Часов в день» — стрелка крутится 🔁</div>
-        </div>
-
-        <!-- слайдеры + вывод -->
-        <div class="calc-card">
-          <h2>📈 Калькулятор дохода</h2>
-          <p style="color:var(--ink-soft)">Ставки: день — 800 ₽/ч, ночь — 1000 ₽/ч.</p>
-          <div class="range-row">
-            <label>Часов в день: <span id="hoursVal">4</span></label>
-            <input type="range" min="1" max="12" value="4" id="hoursRange">
-          </div>
-          <div class="range-row">
-            <label>Дней в неделю: <span id="daysVal">5</span></label>
-            <input type="range" min="1" max="7" value="5" id="daysRange">
-          </div>
-          <div class="range-row">
-            <label>Ночные часы: <span id="nightVal">0</span>%</label>
-            <input type="range" min="0" max="100" step="5" value="0" id="nightRange">
-          </div>
-          <div class="small-numbers">
-            <div class="small-box">
-              <div style="color:#7a8287;font-size:13px">В день</div>
-              <div id="dayIncome" style="font-size:20px;font-weight:700">3 200 ₽</div>
+          <div>
+            <div class="calcRow">
+              <label for="hoursPerDay" class="muted">Часов в день</label>
+              <input id="hoursPerDay" type="range" min="1" max="12" step="1" value="4" />
+              <div><b id="hoursPerDayVal">4</b> ч</div>
             </div>
-            <div class="small-box">
-              <div style="color:#7a8287;font-size:13px">В неделю</div>
-              <div id="weekIncome" style="font-size:20px;font-weight:700">16 000 ₽</div>
+            <div class="calcRow">
+              <label for="daysPerWeek" class="muted">Дней в неделю</label>
+              <input id="daysPerWeek" type="range" min="1" max="7" step="1" value="5" />
+              <div><b id="daysPerWeekVal">5</b> дн</div>
             </div>
-            <div class="small-box">
-              <div style="color:#7a8287;font-size:13px">В месяц (~4,3 нед.)</div>
-              <div id="monthIncome" style="font-size:20px;font-weight:700">68 800 ₽</div>
+            <div class="calcRow">
+              <label for="nightShare" class="muted">Ночные часы</label>
+              <input id="nightShare" type="range" min="0" max="100" step="5" value="0" />
+              <div><b id="nightShareVal">0</b>%</div>
+            </div>
+            <div class="quick">
+              <span class="muted">Быстрый выбор:</span>
+              <button type="button" data-h="2">2 ч</button>
+              <button type="button" data-h="4">4 ч</button>
+              <button type="button" data-h="6">6 ч</button>
+              <button type="button" data-h="8">8 ч</button>
+            </div>
+            <div class="numbers">
+              <div class="num"><div class="muted">Доход в день</div><b id="dayIncome">0 ₽</b></div>
+              <div class="num"><div class="muted">Доход в неделю</div><b id="weekIncome">0 ₽</b></div>
+              <div class="num"><div class="muted">Доход в месяц (~4,3 нед.)</div><b id="monthIncome">0 ₽</b></div>
             </div>
           </div>
         </div>
@@ -442,47 +412,51 @@
     </section>
 
     <!-- КОНТАКТЫ -->
-    <section class="page" id="page-contacts">
-      <div class="container card">
+    <section class="page container" id="page-contacts">
+      <div class="card padded">
         <h2>📞 Контакты</h2>
         <p><strong>Телефон:</strong> <a href="tel:+78002175350">8 800 217-53-50</a></p>
         <p><strong>Почта:</strong> <a href="mailto:info@luma.ru">info@luma.ru</a></p>
-        <p><strong>Мы на Ozon:</strong> <a target="_blank" href="https://www.ozon.ru/seller/luma-1745214/odezhda-obuv-i-aksessuary-7500/?__rr=2">Профиль LUMA</a></p>
-        <p><strong>Мы на Wildberries:</strong> <a target="_blank" href="https://www.wildberries.ru/brands/311279305-luma-vos">Профиль LUMA</a></p>
-        <h3>Юридическая информация</h3>
-        <p>ОГРНИП 323320000032078 · ИНН 325507113530 · Индивидуальный предприниматель · Руководитель: Воснятин Лука Владимирович</p>
-        <p>Юр. адрес: 107023, г. Москва, Барабанный пер., д. 4 стр. 6, помещ. 5н/2</p>
-        <a class="btn" href="https://t.me/Luma_Ekaterina" target="_blank">Написать в Telegram</a>
+        <p><strong>Мы на Ozon:</strong> <a target="_blank" href="https://www.ozon.ru/seller/luma-1745214/">Профиль LUMA на Ozon</a></p>
+        <p><strong>Мы на Wildberries:</strong> <a target="_blank" href="https://www.wildberries.ru/brands/311279305-luma-vos">Профиль LUMA на WB</a></p>
+        <a class="btn" target="_blank" href="https://t.me/Luma_Ekaterina">Написать в Telegram</a>
+      </div>
+    </section>
+
+    <!-- Нижний CTA -->
+    <section class="container" style="padding:24px 0 64px">
+      <div class="glass" style="padding:22px;display:flex;align-items:center;justify-content:space-between;gap:14px">
+        <div><strong style="font-size:20px">Онлайн-поддержка клиентов в LUMA</strong><div class="muted">Гибкий график • Быстрый старт • Ежедневные выплаты</div></div>
+        <a class="btn" href="#apply" data-page="apply">Перейти к отклику</a>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2025 LUMA. Все права защищены.
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+        <small>© <span id="year"></span> LUMA. Все права защищены.</small>
+      </div>
+    </div>
   </footer>
 
   <!-- МОДАЛ -->
-  <div id="modal">
-    <div class="box">
-      <div style="display:flex;gap:6px;align-items:center;color:#2bbf51;font-weight:700;font-size:15px">✔ Заявка отправлена!</div>
-      <h3 style="margin:6px 0 8px">Ваш трек-код:</h3>
-      <div id="trackCode">0000</div>
-      <p style="margin:0 0 12px;color:#5f6a70">Отправьте этот код менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a> для дальнейших указаний.</p>
-      <div class="modal-btns">
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none;position:fixed;inset:0;background:rgba(17,24,39,.6);align-items:center;justify-content:center;padding:20px;z-index:100">
+    <div class="box card padded" style="max-width:520px;width:100%">
+      <div style="display:flex;align-items:center;gap:10px;color:#22c55e;font-weight:800"><span style="font-size:18px">✔</span> Заявка отправлена!</div>
+      <h3 id="modalTitle" style="margin:10px 0 8px">Ваш трек-код:</h3>
+      <div class="track" id="trackCode" style="font-size:42px;font-weight:800;letter-spacing:.06em;color:var(--brand);background:#e9fbf8;border:1px dashed #b9f2ea;border-radius:14px;padding:14px 16px;text-align:center">0000</div>
+      <p class="muted" style="margin:12px 0 8px">Отправьте этот код менеджеру в Telegram <a href="https://t.me/Luma_Ekaterina" target="_blank">@Luma_Ekaterina</a> для дальнейших указаний.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn" id="copyBtn">Скопировать код</button>
-        <a class="btn soft" id="tgBtn" target="_blank" href="https://t.me/Luma_Ekaterina">Написать в Telegram</a>
-        <button class="btn soft" id="closeModal">Закрыть</button>
+        <a class="btn secondary" target="_blank" id="tgBtn" href="https://t.me/Luma_Ekaterina">Написать в Telegram</a>
+        <button class="btn secondary" id="closeModal">Закрыть</button>
       </div>
     </div>
   </div>
 
   <script>
-    // ===== мобильное меню
-    const burger = document.getElementById('burger');
-    const nav = document.getElementById('topNav');
-    burger.addEventListener('click',()=>nav.classList.toggle('show'));
-
-    // ===== роутер
+    // навигация
     const pages = {
       home: document.getElementById('page-home'),
       vacancy: document.getElementById('page-vacancy'),
@@ -493,123 +467,148 @@
     };
     function setActive(page){
       Object.values(pages).forEach(p=>p.classList.remove('active'));
-      pages[page].classList.add('active');
-      document.querySelectorAll('nav a[data-page]').forEach(a=>a.classList.toggle('active',a.dataset.page===page));
-      location.hash = page;
+      (pages[page]||pages.home).classList.add('active');
+      if(location.hash !== '#' + page){ location.hash = page; }
       window.scrollTo({top:0,behavior:'instant'});
-      nav.classList.remove('show');
     }
-    document.querySelectorAll('nav a[data-page]').forEach(a=>{
-      a.addEventListener('click',e=>{e.preventDefault();setActive(a.dataset.page);});
+    function getPage(){ return (location.hash||'#home').replace('#',''); }
+    document.querySelectorAll('nav a[data-page], #mobileNav a[data-page]').forEach(a=>{
+      a.addEventListener('click',(e)=>{
+        e.preventDefault();
+        setActive(a.dataset.page);
+        mobileNav.style.display = 'none';
+      });
     });
-    const startPage = (location.hash||'#home').replace('#','');
-    if(pages[startPage]) setActive(startPage); else setActive('home');
+    window.addEventListener('hashchange', ()=> setActive(getPage()));
+    setActive(getPage());
 
-    // ===== форма
+    // мобильное меню
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    if(menuBtn){
+      menuBtn.addEventListener('click', ()=>{
+        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
+
+    // год
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // форма
     const form = document.getElementById('applyForm');
     const modal = document.getElementById('modal');
     const trackEl = document.getElementById('trackCode');
     const copyBtn = document.getElementById('copyBtn');
     const closeModal = document.getElementById('closeModal');
     const tgBtn = document.getElementById('tgBtn');
-    const platformHidden = form.querySelector('input[name="platform"]');
-    const segs = document.querySelectorAll('.seg');
-
-    segs.forEach(seg=>seg.addEventListener('click',()=>{
-      segs.forEach(s=>s.classList.remove('active'));
-      seg.classList.add('active');
-      platformHidden.value = seg.dataset.value;
-    }));
-
     let lastCode = null;
+    let platformHidden;
+
     function genCode(){
-      let c;
-      do{ c = Math.floor(1000 + Math.random()*9000).toString(); } while(c===lastCode);
-      lastCode = c;
-      return c;
+      let code;
+      do { code = Math.floor(1000 + Math.random()*9000).toString(); } while(code === lastCode);
+      lastCode = code;
+      return code;
     }
     function openModal(code){
       trackEl.textContent = code;
-      modal.style.display='flex';
+      modal.style.display = 'flex';
     }
-    copyBtn.addEventListener('click',()=>{
-      navigator.clipboard.writeText(trackEl.textContent);
-      copyBtn.textContent='Скопировано!';
-      setTimeout(()=>copyBtn.textContent='Скопировать код',1500);
-    });
-    closeModal.addEventListener('click',()=>modal.style.display='none');
-    modal.addEventListener('click',e=>{ if(e.target===modal) modal.style.display='none'; });
 
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const code = genCode();
-      openModal(code);
+    if(form){
+      platformHidden = form.querySelector('input[name="platform"]');
+      const segs = document.querySelectorAll('.seg');
+      segs.forEach(seg=>seg.addEventListener('click',()=>{
+        segs.forEach(s=>s.classList.remove('active'));
+        seg.classList.add('active');
+        platformHidden.value = seg.dataset.value;
+      }));
 
-      // что будем отправлять на бэкенд
-      const payload = {
-        first_name: data.first_name,
-        last_name: data.last_name,
-        phone: data.phone,
-        dob: data.dob,
-        platform: data.platform,
-        telegram: data.telegram || "-",
-        track_code: code,
-        site: location.origin
-      };
-
-      // ВАЖНО: путь должен совпадать с названием твоей функции в /api
-      // если у тебя /api/index.js — поставь "/api"
-      // если у тебя /api/send.js — поставь "/api/send"
-      try{
-        await fetch("/api/telegram",{
-          method:"POST",
-          headers:{"Content-Type":"application/json"},
-          body:JSON.stringify(payload)
+      copyBtn.addEventListener('click',()=>{
+        navigator.clipboard.writeText(trackEl.textContent).then(()=>{
+          copyBtn.textContent='Скопировано!';
+          setTimeout(()=>copyBtn.textContent='Скопировать код',1500);
         });
-      }catch(err){
-        console.warn("Ошибка отправки на сервер:", err);
-      }
+      });
+      closeModal.addEventListener('click',()=>modal.style.display='none');
 
-      tgBtn.href = "https://t.me/Luma_Ekaterina";
-      form.reset();
-      platformHidden.value="iPhone";
-    });
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        const code = genCode();
+        openModal(code);
+        tgBtn.href = 'https://t.me/Luma_Ekaterina';
 
-    // ===== калькулятор и колесо
-    const hoursRange = document.getElementById('hoursRange');
-    const daysRange = document.getElementById('daysRange');
-    const nightRange = document.getElementById('nightRange');
-    const hoursVal = document.getElementById('hoursVal');
-    const daysVal = document.getElementById('daysVal');
-    const nightVal = document.getElementById('nightVal');
+        // отправляем на сервер — БЕЗ токена/чата
+        try{
+          await fetch('/api/submit', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({
+              first_name: data.first_name || '',
+              last_name: data.last_name || '',
+              phone: data.phone || '',
+              dob: data.dob || '',
+              platform: data.platform || 'iPhone',
+              telegram: data.telegram || '-',
+              track_code: code
+            })
+          });
+        }catch(err){
+          console.warn('Не удалось отправить в Telegram через API', err);
+        }
+
+        form.reset();
+        platformHidden.value='iPhone';
+        document.querySelectorAll('.seg').forEach((s,i)=> s.classList.toggle('active', i===0));
+      });
+    }
+
+    // калькулятор
+    const needle = document.getElementById('needle');
+    const hDisplay = document.getElementById('hDisplay');
+    const hoursPerDay = document.getElementById('hoursPerDay');
+    const daysPerWeek = document.getElementById('daysPerWeek');
+    const nightShare = document.getElementById('nightShare');
+    const hoursPerDayVal = document.getElementById('hoursPerDayVal');
+    const daysPerWeekVal = document.getElementById('daysPerWeekVal');
+    const nightShareVal = document.getElementById('nightShareVal');
     const dayIncome = document.getElementById('dayIncome');
     const weekIncome = document.getElementById('weekIncome');
     const monthIncome = document.getElementById('monthIncome');
-    const needle = document.getElementById('needle');
-    const wheelHours = document.getElementById('wheelHours');
 
-    function recalc(){
-      const h = +hoursRange.value;
-      const d = +daysRange.value;
-      const nShare = +nightRange.value/100;
-      hoursVal.textContent = h;
-      daysVal.textContent = d;
-      nightVal.textContent = Math.round(nShare*100);
-      const nightH = h*nShare;
-      const dayH = h - nightH;
-      const daySum = dayH*800 + nightH*1000;
-      const weekSum = daySum*d;
-      const monthSum = weekSum*4.345;
-      dayIncome.textContent = new Intl.NumberFormat('ru-RU').format(Math.round(daySum)) + ' ₽';
-      weekIncome.textContent = new Intl.NumberFormat('ru-RU').format(Math.round(weekSum)) + ' ₽';
-      monthIncome.textContent = new Intl.NumberFormat('ru-RU').format(Math.round(monthSum)) + ' ₽';
-
+    function fmt(n){ return new Intl.NumberFormat('ru-RU').format(n) + ' ₽'; }
+    function spin(h){
       const angle = h/12*360;
-      needle.style.transform = `translate(-50%, -100%) rotate(${angle}deg)`;
-      wheelHours.textContent = h + ' ч';
+      needle && (needle.style.transform = `translate(-50%, -100%) rotate(${angle}deg)`);
+      hDisplay && (hDisplay.textContent = h);
     }
-    [hoursRange,daysRange,nightRange].forEach(el=>el.addEventListener('input',recalc));
+    function recalc(){
+      if(!hoursPerDay) return;
+      const h = +hoursPerDay.value;
+      const d = +daysPerWeek.value;
+      const ns = +nightShare.value/100;
+      const hNight = h*ns;
+      const hDay = h - hNight;
+      const daySum = hDay*800 + hNight*1000;
+      const weekSum = daySum * d;
+      const monthSum = weekSum * 4.345;
+      hoursPerDayVal.textContent = h;
+      daysPerWeekVal.textContent = d;
+      nightShareVal.textContent = Math.round(ns*100);
+      dayIncome.textContent = fmt(Math.round(daySum));
+      weekIncome.textContent = fmt(Math.round(weekSum));
+      monthIncome.textContent = fmt(Math.round(monthSum));
+      spin(h);
+    }
+    [hoursPerDay,daysPerWeek,nightShare].forEach(el=> el && el.addEventListener('input',recalc));
+    document.querySelectorAll('.quick button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        hoursPerDay.value = btn.dataset.h;
+        recalc();
+      });
+    });
     recalc();
   </script>
 </body>
